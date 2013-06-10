@@ -1,15 +1,20 @@
-/* 
- * Copyright (c) 2013 Alpen-Adria Universität Klagenfurt
- *
- * Created on: Jun 06, 2013
- * Authors: Daniel Posch <daniel.posch@aau.at>
- *
- *
- * Please consider the LICENSE 
-*/
+#############################################################################
+# 																			#
+# Copyright (c) 2013 Alpen-Adria Universität Klagenfurt						#
+#																			#
+# Created on: Jun 06, 2013													#
+# Authors:	Daniel Posch 		<daniel.posch@itec.uni-klu.ac.at>			#
+#			Stefan Lederer 		<stefan.lederer@itec.uni-klu.ac.at>			#
+#			Benjamin Rainer 	<benjamin.rainer@itec.uni-klu.ac.at>		#
+#			Christopher Müller 	<christopher.mueller@itec.uni-klu.ac.at>	#
+#																			#
+# 																			#
+# Please consider the LICENSE 												#
+#																			#
+#############################################################################
 
 Content-Centric Networking Skeleton - Implementation
-=======================================================
+=============================================================================
 
 PARC's concept of Content-Centric Netwokring(CCN) is a promising idea. Still there 
 are many challanges to face in this research area and PARC has done a great job
@@ -19,3 +24,35 @@ Therefore we provide the Content-Centric Networking Sekleton(CCNs), which is an
 object oriented implementation of CCN. This implementation allows the research
 community to easily integrate new ideas into the current CCN framework and to
 evaluate them.
+
+
+=============================================================================
+Requirements
+=============================================================================
+* Ubuntu 12.04
+* install qmake
+
+
+=============================================================================
+Build the Soruce Code
+=============================================================================
+* cd ccns/
+* qmake
+* make
+
+
+=============================================================================
+Clean the workspace
+=============================================================================
+* make clean
+or
+* make distclean
+
+
+=============================================================================
+Generate the Source Code Documentation
+=============================================================================
+* install Doxygen: sudo apt-get install doxygen
+* cd ccns/
+* doxygen ccns.doxygen
+* documentation appears in ccns/doc/

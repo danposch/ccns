@@ -1,11 +1,19 @@
-Content-Centric Networking Skeleton (CCNS) License.
+#############################################################################
+#																			#
+# Content-Centric Networking Skeleton (CCNS) LICENSE.						#													#
+# 																			#
+# Copyright (c) 2013 Alpen-Adria Universität Klagenfurt						#
+#																			#
+# Created on: Jun 06, 2013													#
+# Authors:	Daniel Posch 		<daniel.posch@itec.uni-klu.ac.at>			#
+#			Stefan Lederer 		<stefan.lederer@itec.uni-klu.ac.at>			#
+#			Benjamin Rainer 	<benjamin.rainer@itec.uni-klu.ac.at>		#
+#			Christopher Müller 	<christopher.mueller@itec.uni-klu.ac.at>	#
+#																			#
+#																			#
+#############################################################################
 
-Copyright (c) 2013 Alpen-Adria Universität Klagenfurt
-
-Created on: Jun 06, 2013
-Authors: Daniel Posch <daniel.posch@aau.at>
-
-===========================================================================
+=============================================================================
 
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
