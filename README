@@ -11,11 +11,11 @@
 Content-Centric Networking Skeleton - Implementation
 =======================================================
 
-PARC's idea of Content-Centric Netwokring(CCN) is a promising idea. Still there 
+PARC's concept of Content-Centric Netwokring(CCN) is a promising idea. Still there 
 are many challanges to face in this research area and PARC has done a great job
 in this field with providing CCNx. However, we think that the research community
 needs a more flexible and easily exentsible implementation of the CCN protocol.
 Therefore we provide the Content-Centric Networking Sekleton(CCNs), which is an 
 object oriented implementation of CCN. This implementation allows the research
-community to easily integrate new ideas into the current CCN framework and
+community to easily integrate new ideas into the current CCN framework and to
 evaluate them.
