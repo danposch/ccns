@@ -1,0 +1,9 @@
+To ensure the quality and readability of the code we require all
+contributers to follow a specific coding style. We have chosen to use the 
+Google's C++ Style Guide as starting point, which is available here:
+
+http://google-styleguide.googlecode.com/svn/trunk/cppguide.xml
+
+Note that our coding style differs in the following points from Google's style:
+
+*The number of whitespaces for the Tab- and Indent size is 4.
