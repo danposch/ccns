@@ -1,11 +1,8 @@
-TEMPLATE = app
-CONFIG += console
-CONFIG -= qt
+TEMPLATE = subdirs
 
-CONFIG += warn_on console debug
-DESTDIR = bin
-OBJECTS_DIR = build
+CONFIG += ordered
 
-HEADERS = 
+SUBDIRS =  src/encoding/encoding.pro
+#          src\security
 
-SOURCES = src/main.cpp \
+
