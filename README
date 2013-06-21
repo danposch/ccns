@@ -6,7 +6,7 @@
  Authors:  Daniel Posch <daniel.posch@itec.uni-klu.ac.at>
            Stefan Lederer <stefan.lederer@itec.uni-klu.ac.at>
            Benjamin Rainer <benjamin.rainer@itec.uni-klu.ac.at>
-           Christopher Müller <christopher.mueller@itec.uni-klu.ac.at>
+           Christopher Mueller <christopher.mueller@itec.uni-klu.ac.at>
 
 
  Please consider the LICENSE
@@ -31,11 +31,20 @@ evaluate them.
 Requirements
 =============================================================================
 * Ubuntu 12.04
-* install qmake
+* Install qmake
+
+=============================================================================
+Fetch the code
+=============================================================================
+* Install git:
+    apt-get install git-core
+
+* Fetch the Repository from git:
+    git clone https://github.com/danposch/ccns.git
 
 
 =============================================================================
-Build the Soruce Code
+Build the source code
 =============================================================================
 * cd ccns/
 * qmake
@@ -51,9 +60,11 @@ or
 
 
 =============================================================================
-Generate the Source Code Documentation
+Generate the documentation
 =============================================================================
-* install Doxygen: sudo apt-get install doxygen
+* install Doxygen: 
+    apt-get install doxygen
+
 * cd ccns/
 * doxygen ccns.doxygen
 * documentation appears in ccns/doc/
