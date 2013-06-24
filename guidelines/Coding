@@ -7,3 +7,5 @@ http://google-styleguide.googlecode.com/svn/trunk/cppguide.xml
 Note that our coding style differs in the following points from Google's style:
 
 *The number of whitespaces for the Tab- and Indent size is 4.
+*The length of a line is not limited to 80 characters.
+*The define guard is not required to base on the full path in a project's source tree.
