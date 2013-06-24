@@ -47,7 +47,8 @@ Fetch the code
 Build the source code
 =============================================================================
 * cd ccns/
-* qmake
+	* qmake to build the DEBUG version
+	* qmake CONFIG+=ccns_release
 * make
 
 
@@ -56,8 +57,7 @@ Clean the workspace
 =============================================================================
 * make clean
 or
-* make distclean
-
+* make distclean (required to switch from DEBUG to RELEASE or vice versa)
 
 =============================================================================
 Generate the documentation
