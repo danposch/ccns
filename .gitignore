@@ -12,6 +12,9 @@
 # no *.user files
 *.user
 
+# no *.autosave files
+*.autosave
+
 #exclude the build directoy
 build/
 
