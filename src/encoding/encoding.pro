@@ -4,6 +4,22 @@
 
 TEMPLATE = app
 
-HEADERS += 
-SOURCES += main.cc
+HEADERS += \
+    packetmanager.h \
+    packetbuilderfactory.h \
+    ipacket.h \
+    abstractpacket.h \
+    ipacketbuilder.h \
+    abstractpacketbuilder.h \
+    ccnxinterstbuilder.h \
+    ccnxinterest.h
+
+
+SOURCES += main.cc \
+    packetmanager.cc \
+    packetbuilderfactory.cc \
+    abstractpacket.cc \
+    abstractpacketbuilder.cc \
+    ccnxinterstbuilder.cc \
+    ccnxinterest.cc
 

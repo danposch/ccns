@@ -1,5 +1,7 @@
 #include <iostream>
 
+#include "packetmanager.h"
+
 using namespace std;
 
 /*!
@@ -8,6 +10,9 @@ using namespace std;
 
 int main()
 {
+
+    PacketManager pman;
+
     cout << "Hello World!" << endl;
     return 0;
 }
