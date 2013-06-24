@@ -28,7 +28,7 @@ IPacket* PacketManager::createInterest(std::string name)
     return getPacketBuilder(IPacketBuilder::InterestBuilder)->createPacket(name, NULL);
 }
 
-IPacket* PacketManager::createContentObject()
+IPacket* PacketManager::createContentObject(std::string name, unsigned char *blob)
 {
-    return NULL;
+    return getPacketBuilder(IPacketBuilder::ContentObjectBuilder)->createPacket(name, blob);
 }

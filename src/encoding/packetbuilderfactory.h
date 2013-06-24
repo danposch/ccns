@@ -5,6 +5,7 @@
 
 #include "ipacketbuilder.h"
 #include "ccnxinterstbuilder.h"
+#include "ccnxcontentobjectbuilder.h"
 
 class PacketBuilderFactory
 {

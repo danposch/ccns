@@ -15,8 +15,8 @@ public:
     PacketManager();
     ~PacketManager();
 
-    IPacket* createInterest(std::string);
-    IPacket* createContentObject();
+    IPacket* createInterest(std::string name);
+    IPacket* createContentObject(std::string name, unsigned char *blob);
 
 private:
 

@@ -12,7 +12,9 @@ HEADERS += \
     ipacketbuilder.h \
     abstractpacketbuilder.h \
     ccnxinterstbuilder.h \
-    ccnxinterest.h
+    ccnxinterest.h \
+    ccnxcontentobjectbuilder.h \
+    ccnxcontentobject.h
 
 
 SOURCES += main.cc \
@@ -21,5 +23,6 @@ SOURCES += main.cc \
     abstractpacket.cc \
     abstractpacketbuilder.cc \
     ccnxinterstbuilder.cc \
-    ccnxinterest.cc
-
+    ccnxinterest.cc \
+    ccnxcontentobjectbuilder.cc \
+    ccnxcontentobject.cc
