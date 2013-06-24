@@ -26,5 +26,3 @@ WARNINGS += -Wall
 
 DESTDIR = bin
 OBJECTS_DIR = build
-
-#LIBS += -lboost_regex

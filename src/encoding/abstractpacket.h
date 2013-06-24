@@ -6,7 +6,7 @@
 class AbstractPacket : public IPacket
 {
 public:
-    AbstractPacket();
+    AbstractPacket(int type, const std::string &name);
 
     int getType();
 

@@ -1,8 +1,9 @@
 #include "abstractpacket.h"
 
-AbstractPacket::AbstractPacket()
+AbstractPacket::AbstractPacket(int type, const std::string &name)
 {
-
+    this->packetType = type;
+    this->packetName = name;
 }
 
 int AbstractPacket::getType(){
