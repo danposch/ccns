@@ -16,17 +16,20 @@ namespace ccns
             BinaryBuffer();
             BinaryBuffer(unsigned char* data, size_t length);
 
-            ~BinaryBuffer();
+            virtual ~BinaryBuffer();
 
-            BinaryBuffer* append(unsigned char* data, size_t length);
+            BinaryBuffer& append(unsigned char* data, size_t length);
 
+            BinaryBuffer(const BinaryBuffer& other);
             BinaryBuffer& operator=(BinaryBuffer const& other);
-            BinaryBuffer operator+(BinaryBuffer const& other);
-            //const BinaryBuffer operator+(BinaryBuffer const& left, BinaryBuffer const& right);
+            BinaryBuffer& operator+(BinaryBuffer const& other);
+
+            unsigned char* data(){return buffer;}
 
         private:
 
             void resize(size_t new_min_length);
+            void init(unsigned char* data, size_t length);
 
             unsigned char *buffer;
             size_t curLength;

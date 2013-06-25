@@ -11,6 +11,11 @@ BinaryBuffer::BinaryBuffer()
 
 BinaryBuffer::BinaryBuffer(unsigned char *data, size_t length)
 {
+    init(data,length);
+}
+
+void BinaryBuffer::init(unsigned char *data, size_t length)
+{
     buffer = (unsigned char*)malloc(length);
     memcpy(buffer, data, length);
 
@@ -24,10 +29,13 @@ BinaryBuffer::~BinaryBuffer()
         free(buffer);
 }
 
-BinaryBuffer* BinaryBuffer::append(unsigned char *data, size_t length)
+BinaryBuffer& BinaryBuffer::append(unsigned char *data, size_t length)
 {
     if(buffer == NULL)
-        return new BinaryBuffer(data, length);
+    {
+        init(data,length);
+        return *this;
+    }
 
     if(curLength+length <= maxLength)
         memcpy(buffer+curLength, data, length);
@@ -37,7 +45,9 @@ BinaryBuffer* BinaryBuffer::append(unsigned char *data, size_t length)
         memcpy(buffer+curLength, data, length);
     }
 
-    return this;
+    curLength += length;
+
+    return *this;
 }
 
 void BinaryBuffer::resize(size_t length)
@@ -60,27 +70,18 @@ BinaryBuffer& BinaryBuffer::operator=(BinaryBuffer const& other)
 
     this->buffer = (unsigned char*) realloc((void*)this->buffer, maxLength);
 
-    memcpy(other.buffer, this->buffer, curLength);
+    memcpy(this->buffer, other.buffer, curLength);
 
     return *this;
 }
 
-/*const BinaryBuffer BinaryBuffer::operator+(BinaryBuffer const& left, BinaryBuffer const& right)
+
+BinaryBuffer::BinaryBuffer(const BinaryBuffer& other)
 {
-    BinaryBuffer tmp;
+    *this = other;
+}
 
-    tmp.curLength = left.curLength + right.curLength;
-    tmp.maxLength = tmp.curLength;
-
-    tmp.buffer = (unsigned char*)malloc(tmp.curLength);
-
-    memcpy(tmp.buffer, left.buffer, left.curLength);
-    memcpy(tmp.buffer+left.curLength, right.buffer, right.curLength);
-
-    return tmp;
-}*/
-
-BinaryBuffer BinaryBuffer::operator+(BinaryBuffer const& other)
+BinaryBuffer& BinaryBuffer::operator+(BinaryBuffer const& other)
 {
 
     this->append(other.buffer, other.curLength);

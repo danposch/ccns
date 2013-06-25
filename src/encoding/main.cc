@@ -29,7 +29,30 @@ int main()
     cout << "Packet Name = " << interest->getName() << " Packet Type = "<< interest->getType() << std::endl;
     cout << "Packet Name = " << content->getName() << " Packet Type = "<< content->getType() << std::endl;
 
-    BinaryBuffer buf;
+    BinaryBuffer buf,buf2;
+
+    unsigned char b1[3] = {'a','b','c'};
+    unsigned char b2[5] = {'1','2','3','4','5'};
+    unsigned char b3[3] = {'x','y','z'};
+
+    BinaryBuffer buf3(b1, 3);
+    fprintf(stderr, "Buffer = %s\n",buf3.data());
+
+    fprintf(stderr, "Buffer = %s\n",buf.data());
+    buf.append(b2,5);
+    fprintf(stderr, "Buffer = %s\n",buf.data());
+
+    buf.append(b3, 3);
+    fprintf(stderr, "Buffer = %s\n",buf.data());
+
+    buf = buf.append(b2,5).append(b3,3);
+    fprintf(stderr, "Buffer = %s\n",buf.data());
+
+    buf2 = buf3;
+    fprintf(stderr, "Buffer2 = %s\n",buf2.data());
+
+    buf2 = buf2+buf;
+    fprintf(stderr, "Buffer2 = %s\n",buf2.data());
 
     cout << "Hello World!" << endl;
     return 0;
