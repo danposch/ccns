@@ -54,6 +54,9 @@ int main()
     buf2 = buf2+buf;
     fprintf(stderr, "Buffer2 = %s\n",buf2.data());
 
+    BinaryBuffer buf4(buf2);
+    fprintf(stderr, "Buffer4 = %s\n",buf4.data());
+
     cout << "Hello World!" << endl;
     return 0;
 }
