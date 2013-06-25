@@ -3,15 +3,23 @@
 
 #include "ipacket.h"
 
-class IPacketBuilder
+namespace ccns
 {
+    namespace encoding
+    {
 
-public:
+        class IPacketBuilder
+        {
 
-    enum PacketBuilderType {InterestBuilder, ContentObjectBuilder};
+        public:
 
-    virtual void setDefaultSettings() = 0;
-    virtual IPacket* createPacket(const std::string &name, unsigned char* blob) = 0;
-};
+            enum PacketBuilderType {InterestBuilder, ContentObjectBuilder};
+
+            virtual void setDefaultSettings() = 0;
+            virtual IPacket* createPacket(const std::string &name, unsigned char* blob) = 0; // packet_data_t
+            virtual IPacket* createPacket(const std::string &name) = 0;
+        };
+    }
+}
 
 #endif // IPACKETBUILDER_H

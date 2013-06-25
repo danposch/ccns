@@ -47,6 +47,7 @@ Fetch the code
 Build the source code
 =============================================================================
 * cd ccns/
+	* ./bootstrap.sh
 	* qmake to build the DEBUG version
 	* qmake CONFIG+=ccns_release
 * make

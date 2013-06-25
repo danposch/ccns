@@ -1,9 +1,6 @@
 #include "packetbuilderfactory.h"
 
-PacketBuilderFactory::PacketBuilderFactory()
-{
-}
-
+using namespace ccns::encoding;
 
 IPacketBuilder* PacketBuilderFactory::createPacketBuilder(IPacketBuilder::PacketBuilderType type)
 {

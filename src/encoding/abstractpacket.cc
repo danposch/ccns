@@ -1,5 +1,7 @@
 #include "abstractpacket.h"
 
+using namespace ccns::encoding;
+
 AbstractPacket::AbstractPacket(int type, const std::string &name)
 {
     this->packetType = type;

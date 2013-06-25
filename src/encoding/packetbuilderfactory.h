@@ -7,12 +7,17 @@
 #include "ccnxinterstbuilder.h"
 #include "ccnxcontentobjectbuilder.h"
 
-class PacketBuilderFactory
+namespace ccns
 {
-public:
-    PacketBuilderFactory();
+    namespace encoding
+    {
+        class PacketBuilderFactory
+        {
+            public:
+                static IPacketBuilder* createPacketBuilder(IPacketBuilder::PacketBuilderType type);
+        };
 
-    IPacketBuilder* createPacketBuilder(IPacketBuilder::PacketBuilderType type);
-};
+    }
+}
 
 #endif // PACKETBUILDERFACTORY_H

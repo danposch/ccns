@@ -4,14 +4,21 @@
 #include "ipacketbuilder.h"
 #include "ipacket.h"
 
-class AbstractPacketBuilder : public IPacketBuilder
+namespace ccns
 {
-public:
-    AbstractPacketBuilder();
+    namespace encoding
+    {
+        class AbstractPacketBuilder : public IPacketBuilder
+        {
+        public:
+            AbstractPacketBuilder();
 
-    virtual IPacket* createPacket(const std::string &name, unsigned char* blob) = 0;
+            virtual IPacket* createPacket(const std::string &name, unsigned char* blob);
+            virtual IPacket* createPacket(const std::string &name);
 
-    void setDefaultSettings();
-};
+            void setDefaultSettings();
+        };
+    }
+}
 
 #endif // ABSTRACTPACKETBUILDER_H

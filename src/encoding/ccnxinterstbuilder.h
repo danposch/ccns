@@ -7,12 +7,19 @@
 #include "ipacket.h"
 #include "ccnxinterest.h"
 
-class CCNxInterstBuilder : public AbstractPacketBuilder
+namespace ccns
 {
-public:
-    CCNxInterstBuilder();
+    namespace encoding
+    {
 
-    IPacket* createPacket(const std::string &name, unsigned char*);
-};
+        class CCNxInterstBuilder : public AbstractPacketBuilder
+        {
+        public:
+            CCNxInterstBuilder();
 
+            IPacket* createPacket(const std::string &name, unsigned char*);
+            IPacket* createPacket(const std::string &name);
+        };
+    }
+}
 #endif // CCNXINTERSTBUILDER_H

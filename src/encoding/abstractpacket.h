@@ -3,22 +3,28 @@
 
 #include "ipacket.h"
 
-class AbstractPacket : public IPacket
+namespace ccns
 {
-public:
-    AbstractPacket(int type, const std::string &name);
+    namespace encoding
+    {
+        class AbstractPacket : public IPacket
+        {
+        public:
+            AbstractPacket(int type, const std::string &name);
 
-    int getType();
+            int getType();
 
-    std::string getName();
+            std::string getName();
 
-    int prefixMatch(const std::string &name);
+            int prefixMatch(const std::string &name);
 
-protected:
+        protected:
 
-    int packetType;
-    std::string packetName;
+            int packetType;
+            std::string packetName;
 
-};
+        };
+    }
+}
 
 #endif // ABSTRACTPACKET_H

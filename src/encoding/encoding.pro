@@ -4,6 +4,8 @@
 
 TEMPLATE = app
 
+LIBS += ./../util/lib/libutil.a
+
 HEADERS += \
     packetmanager.h \
     packetbuilderfactory.h \

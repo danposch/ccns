@@ -1,5 +1,7 @@
 #include "ccnxcontentobjectbuilder.h"
 
+using namespace ccns::encoding;
+
 CCNxContentObjectBuilder::CCNxContentObjectBuilder()
 {
 }

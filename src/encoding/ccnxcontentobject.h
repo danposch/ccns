@@ -3,10 +3,15 @@
 
 #include "abstractpacket.h"
 
-class CCNxContentObject : public AbstractPacket
+namespace ccns
 {
-public:
-    CCNxContentObject(const std::string &name, unsigned char* blob);
-};
-
+    namespace encoding
+    {
+        class CCNxContentObject : public AbstractPacket
+        {
+        public:
+            CCNxContentObject(const std::string &name, unsigned char* blob);
+        };
+    }
+}
 #endif // CCNXCONTENTOBJECT_H

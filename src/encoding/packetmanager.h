@@ -8,25 +8,27 @@
 #include "ipacketbuilder.h"
 #include "ipacket.h"
 
-class PacketManager
+namespace ccns
 {
+    namespace encoding
+    {
+        class PacketManager
+        {
 
-public:
-    PacketManager();
-    ~PacketManager();
+        public:
+            PacketManager();
+            virtual ~PacketManager();
 
-    IPacket* createInterest(std::string name);
-    IPacket* createContentObject(std::string name, unsigned char *blob);
+            IPacketBuilder* getPacketBuilder(IPacketBuilder::PacketBuilderType type);
 
-private:
+            //IPacket* createInterest(std::string name);
+            //IPacket* createContentObject(std::string name, unsigned char *blob);
 
-    PacketBuilderFactory *factory;
+        private:
+            typedef boost::unordered_map<IPacketBuilder::PacketBuilderType,  IPacketBuilder*> BuilderMap;
+            BuilderMap bmap;
 
-    IPacketBuilder* getPacketBuilder(IPacketBuilder::PacketBuilderType type);
-
-    typedef boost::unordered_map<IPacketBuilder::PacketBuilderType,  IPacketBuilder*> BuilderMap;
-    BuilderMap bmap;
-
-};
-
+        };
+    }
+}
 #endif // PACKETMANAGER_H

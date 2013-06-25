@@ -16,8 +16,11 @@ CONFIG(debug, debug|release) {
     message( "Building the RELEASE Version" )
 }
 
-INCLUDEPATH += . ..
-LIBS += -L/usr/lib
+INCLUDEPATH += . .. \
+               ./../../boost_1_53_0/ \
+               ./../util/
+
+LIBS += -L/usr/lib \
 
 CONFIG -= qt
 CONFIG += warn_on

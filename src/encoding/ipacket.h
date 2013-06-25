@@ -3,15 +3,21 @@
 
 #include <string>
 
-class IPacket
+namespace ccns
 {
-public:
+    namespace encoding
+            {
+        class IPacket
+        {
+        public:
+            virtual ~IPacket(){}
 
-    virtual int getType() = 0;
+            virtual int getType() = 0;
 
-    virtual std::string getName() = 0;
+            virtual std::string getName() = 0;
 
-    virtual int prefixMatch(const std::string &name) = 0;
-};
-
+            virtual int prefixMatch(const std::string &name) = 0;
+        };
+    }
+}
 #endif // IPACKET_H

@@ -5,12 +5,18 @@
 #include "ipacket.h"
 #include "ccnxcontentobject.h"
 
-class CCNxContentObjectBuilder : public AbstractPacketBuilder
+namespace ccns
 {
-public:
-    CCNxContentObjectBuilder();
+    namespace encoding
+    {
 
-    IPacket* createPacket(const std::string &name, unsigned char* blob);
-};
+        class CCNxContentObjectBuilder : public AbstractPacketBuilder
+        {
+        public:
+            CCNxContentObjectBuilder();
 
+            IPacket* createPacket(const std::string &name, unsigned char* blob);
+        };
+    }
+}
 #endif // CCNXCONTENTOBJECTBUILDER_H
