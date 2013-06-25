@@ -77,6 +77,7 @@ BinaryBuffer& BinaryBuffer::operator=(BinaryBuffer const& other)
 
 BinaryBuffer::BinaryBuffer(const BinaryBuffer& other)
 {
+    buffer = NULL;
     *this = other;
 }
 
