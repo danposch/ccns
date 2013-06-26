@@ -48,7 +48,7 @@ Build the source code
 =============================================================================
 * cd ccns/
 * sudo ./bootstrap.sh (must be executed as root to install third party libs)
-	* qmake 					 (to build the DEBUG version)
+	* qmake                      (to build the DEBUG version)
 	or
 	* qmake CONFIG+=ccns_release (to build the release version)
 * make
