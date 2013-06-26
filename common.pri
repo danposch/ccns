@@ -16,11 +16,15 @@ CONFIG(debug, debug|release) {
     message( "Building the RELEASE Version" )
 }
 
-INCLUDEPATH += . .. \
-               ./../../boost_1_53_0/ \
+INCLUDEPATH = . .. \
+               /usr/local/include/ \
+               /usr/include/ \
                ./../util/
 
-LIBS += -L/usr/lib \
+LIBS = -L/usr/local/lib \
+       -L/usr/lib \
+        -lpthread
+
 
 CONFIG -= qt
 CONFIG += warn_on

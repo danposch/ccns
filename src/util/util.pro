@@ -7,8 +7,9 @@ CONFIG += staticlib
 
 TARGET = util
 
-
 DESTDIR = lib
+
+LIBS += -lcryptopp
 
 HEADERS += \ 
     binarybuffer.h

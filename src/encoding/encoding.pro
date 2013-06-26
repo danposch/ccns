@@ -4,7 +4,7 @@
 
 TEMPLATE = app
 
-LIBS += ./../util/lib/libutil.a
+LIBS += ./../util/lib/libutil.a -lcryptopp
 
 HEADERS += \
     packetmanager.h \

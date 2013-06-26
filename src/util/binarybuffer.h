@@ -5,6 +5,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include <cryptopp/base64.h>
+
+#include <iostream>
+#include <stdio.h>
+
 namespace ccns
 {
     namespace util
@@ -22,7 +27,9 @@ namespace ccns
 
             BinaryBuffer(const BinaryBuffer& other);
             BinaryBuffer& operator=(BinaryBuffer const& other);
-            BinaryBuffer& operator+(BinaryBuffer const& other);
+            BinaryBuffer operator+(BinaryBuffer const& other);
+
+            BinaryBuffer& toBase64();
 
             unsigned char* data(){return buffer;}
 
@@ -34,6 +41,9 @@ namespace ccns
             unsigned char *buffer;
             size_t curLength;
             size_t maxLength;
+
+            CryptoPP::Base64Encoder b64encoder;
+            CryptoPP::Base64Encoder b64decoder;
         };
     }
 }

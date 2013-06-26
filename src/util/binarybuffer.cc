@@ -81,10 +81,21 @@ BinaryBuffer::BinaryBuffer(const BinaryBuffer& other)
     *this = other;
 }
 
-BinaryBuffer& BinaryBuffer::operator+(BinaryBuffer const& other)
+BinaryBuffer BinaryBuffer::operator+(BinaryBuffer const& other)
 {
+    BinaryBuffer b;
+    b.append(this->buffer, this->curLength);
+    b.append(other.buffer, other.curLength);
+    return b;
+}
 
-    this->append(other.buffer, other.curLength);
+BinaryBuffer& BinaryBuffer::toBase64()
+{
+    resize(curLength*2);
+
+    b64encoder.Put(buffer, curLength);
+    b64encoder.MessageEnd();
+    curLength = b64encoder.Get(buffer, curLength*2);
 
     return *this;
 }

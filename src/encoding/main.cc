@@ -51,10 +51,19 @@ int main()
     buf2 = buf3;
     fprintf(stderr, "Buffer2 = %s\n",buf2.data());
 
-    buf2 = buf2+buf;
+    buf2+buf;
     fprintf(stderr, "Buffer2 = %s\n",buf2.data());
 
+    buf3 = (buf2+buf);
+    fprintf(stderr, "Buffer3 = %s\n",buf3.data());
+
     BinaryBuffer buf4(buf2);
+    fprintf(stderr, "Buffer4 = %s\n",buf4.data());
+
+    buf4 = buf4.toBase64();
+    fprintf(stderr, "Buffer4 = %s\n",buf4.data());
+
+    buf4.toBase64();
     fprintf(stderr, "Buffer4 = %s\n",buf4.data());
 
     cout << "Hello World!" << endl;

@@ -30,3 +30,6 @@ Makefile
 #exclude the boost directory
 boost*/
 
+#exclude the boost directory
+crypto++/
+
