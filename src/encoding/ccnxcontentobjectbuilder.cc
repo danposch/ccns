@@ -7,7 +7,7 @@ CCNxContentObjectBuilder::CCNxContentObjectBuilder()
 }
 
 
-IPacket* CCNxContentObjectBuilder::createPacket(const std::string &name, unsigned char* blob)
+IPacket* CCNxContentObjectBuilder::createPacket(const std::string &name, util::BinaryBuffer data)
 {
-    return new CCNxContentObject(name, blob);
+    return new CCNxContentObject(name, data);
 }

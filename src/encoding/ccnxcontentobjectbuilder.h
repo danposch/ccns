@@ -4,6 +4,7 @@
 #include "abstractpacketbuilder.h"
 #include "ipacket.h"
 #include "ccnxcontentobject.h"
+#include "binarybuffer.h"
 
 namespace ccns
 {
@@ -15,7 +16,7 @@ namespace ccns
         public:
             CCNxContentObjectBuilder();
 
-            IPacket* createPacket(const std::string &name, unsigned char* blob);
+            IPacket* createPacket(const std::string &name, util::BinaryBuffer data);
         };
     }
 }

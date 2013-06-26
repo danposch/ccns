@@ -7,7 +7,7 @@ CCNxInterstBuilder::CCNxInterstBuilder()
 
 }
 
-IPacket* CCNxInterstBuilder::createPacket(const std::string &name, unsigned char*)
+IPacket* CCNxInterstBuilder::createPacket(const std::string &name, util::BinaryBuffer)
 {
     return createPacket(name);
 }

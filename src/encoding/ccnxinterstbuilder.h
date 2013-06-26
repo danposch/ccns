@@ -17,7 +17,7 @@ namespace ccns
         public:
             CCNxInterstBuilder();
 
-            IPacket* createPacket(const std::string &name, unsigned char*);
+            IPacket* createPacket(const std::string &name, util::BinaryBuffer);
             IPacket* createPacket(const std::string &name);
         };
     }

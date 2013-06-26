@@ -2,6 +2,7 @@
 #define CCNXCONTENTOBJECT_H
 
 #include "abstractpacket.h"
+#include "binarybuffer.h"
 
 namespace ccns
 {
@@ -10,7 +11,7 @@ namespace ccns
         class CCNxContentObject : public AbstractPacket
         {
         public:
-            CCNxContentObject(const std::string &name, unsigned char* blob);
+            CCNxContentObject(const std::string &name, util::BinaryBuffer data);
         };
     }
 }
