@@ -30,20 +30,21 @@ namespace ccns
             BinaryBuffer operator+(BinaryBuffer const& other);
 
             BinaryBuffer& toBase64();
+            BinaryBuffer& toBinary();
 
+            size_t length(){return curLength;}
             unsigned char* data(){return buffer;}
 
         private:
 
             void resize(size_t new_min_length);
+            void shrink(size_t new_min_length);
+
             void init(unsigned char* data, size_t length);
 
             unsigned char *buffer;
             size_t curLength;
             size_t maxLength;
-
-            CryptoPP::Base64Encoder b64encoder;
-            CryptoPP::Base64Encoder b64decoder;
         };
     }
 }

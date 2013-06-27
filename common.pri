@@ -16,7 +16,7 @@ CONFIG(debug, debug|release) {
     message( "Building the RELEASE Version" )
 }
 
-INCLUDEPATH = . .. \
+INCLUDEPATH =  \
                /usr/local/include/ \
                /usr/include/ \
                ./../util/

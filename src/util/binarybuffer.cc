@@ -63,6 +63,16 @@ void BinaryBuffer::resize(size_t length)
     buffer = (unsigned char*) realloc((void*)buffer, maxLength);
 }
 
+void BinaryBuffer::shrink(size_t length)
+{
+    // we only shrink if we can take away at least a thrid of the size
+
+    while((maxLength-(maxLength/3)) > length)
+        maxLength -= maxLength/3;
+
+    buffer = (unsigned char*) realloc((void*)buffer, maxLength);
+}
+
 BinaryBuffer& BinaryBuffer::operator=(BinaryBuffer const& other)
 {
     this->maxLength = other.maxLength;
@@ -91,11 +101,28 @@ BinaryBuffer BinaryBuffer::operator+(BinaryBuffer const& other)
 
 BinaryBuffer& BinaryBuffer::toBase64()
 {
-    resize(curLength*2);
-
+    CryptoPP::Base64Encoder b64encoder(NULL,false);
     b64encoder.Put(buffer, curLength);
     b64encoder.MessageEnd();
-    curLength = b64encoder.Get(buffer, curLength*2);
+
+    size_t count = b64encoder.MaxRetrievable();
+
+    resize(count);
+    curLength = b64encoder.Get(buffer, count);
+
+    return *this;
+}
+
+BinaryBuffer& BinaryBuffer::toBinary()
+{
+    CryptoPP::Base64Decoder b64decoder(NULL);
+    b64decoder.Put(buffer, curLength);
+    b64decoder.MessageEnd();
+
+    size_t count = b64decoder.MaxRetrievable();
+    curLength = b64decoder.Get(buffer, count);
+
+    shrink(curLength);
 
     return *this;
 }
