@@ -3,6 +3,8 @@
 
 #include <string>
 
+#include "binarybuffer.h"
+
 namespace ccns
 {
     namespace encoding
@@ -19,6 +21,8 @@ namespace ccns
             virtual std::string getName() = 0;
 
             virtual int prefixMatch(const std::string &name) = 0;
+
+            virtual ccns::util::BinaryBuffer serialize() = 0;
         };
     }
 }

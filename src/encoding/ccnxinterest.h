@@ -3,7 +3,12 @@
 
 #include <boost/date_time/posix_time/posix_time.hpp>
 
+//#include <boost/archive/xml_iarchive.hpp>
+//#include <boost/archive/xml_oarchive.hpp>
+
+
 #include "abstractpacket.h"
+#include "binarybuffer.h"
 
 // see http://www.ccnx.org/releases/latest/doc/technical/InterestMessage.html
 
@@ -17,6 +22,8 @@ namespace ccns
 
         public:
             CCNxInterest(std::string name);
+
+            util::BinaryBuffer serialize();
 
         private:
 

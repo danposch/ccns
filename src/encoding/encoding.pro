@@ -4,7 +4,7 @@
 
 TEMPLATE = app
 
-LIBS += ./../util/lib/libutil.a -lcryptopp
+LIBS += ./../util/lib/libutil.a -lcryptopp -lboost_serialization
 
 HEADERS += \
     packetmanager.h \

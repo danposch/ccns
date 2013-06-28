@@ -14,5 +14,6 @@ HEADERS += \
 
 SOURCES += test_main.cc \
            util_test/binarybuffer.cc \
+           util_test/name.cc \
            encoding_test/packetmanager.cc
 

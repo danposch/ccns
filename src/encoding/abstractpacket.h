@@ -2,6 +2,7 @@
 #define ABSTRACTPACKET_H
 
 #include "ipacket.h"
+#include "binarybuffer.h"
 
 namespace ccns
 {
@@ -17,6 +18,8 @@ namespace ccns
             std::string getName();
 
             int prefixMatch(const std::string &name);
+
+            virtual ccns::util::BinaryBuffer serialize();
 
         protected:
 

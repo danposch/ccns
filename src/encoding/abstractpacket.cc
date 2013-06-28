@@ -19,3 +19,9 @@ std::string AbstractPacket:: getName(){
 int AbstractPacket::prefixMatch(const std::string &name){
     return 0;
 }
+
+ccns::util::BinaryBuffer AbstractPacket::serialize(){
+
+    ccns::util::BinaryBuffer empty;
+    return empty;
+}

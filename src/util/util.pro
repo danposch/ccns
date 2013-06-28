@@ -10,8 +10,10 @@ TARGET = util
 DESTDIR = lib
 
 HEADERS += \ 
-    binarybuffer.h
+    binarybuffer.h \
+    name.h
 
 SOURCES += \ 
-    binarybuffer.cc
+    binarybuffer.cc \
+    name.cc
 

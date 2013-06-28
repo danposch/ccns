@@ -30,6 +30,10 @@ int main()
     cout << "Packet Name = " << interest->getName() << " Packet Type = "<< interest->getType() << std::endl;
     cout << "Packet Name = " << content->getName() << " Packet Type = "<< content->getType() <<  std::endl;
 
+    interest->serialize();
+
+    return 0;
+
     BinaryBuffer buf,buf2;
 
     unsigned char b1[3] = {'a','b','c'};
