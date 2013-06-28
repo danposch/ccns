@@ -64,8 +64,16 @@ int main()
     buf4 = buf4.toBase64();
     fprintf(stderr, "Buffer4 = %s\n",buf4.data());
 
-    buf4.toBase64();
-    fprintf(stderr, "Buffer4 = %s\n",buf4.data());
+    BinaryBuffer ba(b1,3);
+
+    BinaryBuffer bb = ba.getHexCopy();
+
+    ba = buf4;
+
+    ba.fromBase64();
+
+    fprintf(stderr, "Buffer ba = %s, length = %d \n",ba.data(), ba.length());
+    fprintf(stderr, "Buffer bb = %s\n",bb.data());
 
     cout << "Hello World!" << endl;
     return 0;

@@ -6,6 +6,8 @@
 #include <string.h>
 
 #include <cryptopp/base64.h>
+#include <cryptopp/hex.h>
+#include <cryptopp/filters.h>
 
 #include <iostream>
 #include <stdio.h>
@@ -30,12 +32,20 @@ namespace ccns
             BinaryBuffer operator+(BinaryBuffer const& other);
 
             BinaryBuffer& toBase64();
-            BinaryBuffer& toBinary();
+            BinaryBuffer& fromBase64();
+
+            BinaryBuffer& toHex();
+            BinaryBuffer& fromHex();
+
+            BinaryBuffer getHexCopy();
+            BinaryBuffer getBase64Copy();
 
             size_t length(){return curLength;}
             unsigned char* data(){return buffer;}
 
         private:
+
+            BinaryBuffer& encode(BinaryBuffer &buf, CryptoPP::Filter &filter);
 
             void resize(size_t new_min_length);
             void shrink(size_t new_min_length);

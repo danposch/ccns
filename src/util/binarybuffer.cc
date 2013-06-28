@@ -102,27 +102,65 @@ BinaryBuffer BinaryBuffer::operator+(BinaryBuffer const& other)
 BinaryBuffer& BinaryBuffer::toBase64()
 {
     CryptoPP::Base64Encoder b64encoder(NULL,false);
-    b64encoder.Put(buffer, curLength);
-    b64encoder.MessageEnd();
-
-    size_t count = b64encoder.MaxRetrievable();
-
-    resize(count);
-    curLength = b64encoder.Get(buffer, count);
+    encode(*this, b64encoder);
 
     return *this;
 }
 
-BinaryBuffer& BinaryBuffer::toBinary()
+BinaryBuffer& BinaryBuffer::fromBase64()
 {
     CryptoPP::Base64Decoder b64decoder(NULL);
-    b64decoder.Put(buffer, curLength);
-    b64decoder.MessageEnd();
-
-    size_t count = b64decoder.MaxRetrievable();
-    curLength = b64decoder.Get(buffer, count);
-
-    shrink(curLength);
+    encode(*this, b64decoder);
 
     return *this;
+}
+
+BinaryBuffer& BinaryBuffer::toHex()
+{
+    CryptoPP::HexEncoder hexEncoder;
+    encode(*this, hexEncoder);
+
+    return *this;
+}
+
+BinaryBuffer& BinaryBuffer::fromHex()
+{
+    CryptoPP::HexDecoder hexDecoder;
+    encode(*this, hexDecoder);
+
+    return *this;
+}
+
+BinaryBuffer BinaryBuffer::getBase64Copy()
+{
+    BinaryBuffer copy = *this;
+    copy.toBase64();
+
+    return copy;
+}
+
+BinaryBuffer BinaryBuffer::getHexCopy()
+{
+    BinaryBuffer copy = *this;
+    copy.toHex();
+
+    return copy;
+}
+
+BinaryBuffer& BinaryBuffer::encode(BinaryBuffer &buf, CryptoPP::Filter &filter)
+{
+    filter.Put(buf.buffer, buf.curLength);
+    filter.MessageEnd();
+
+    size_t count = filter.MaxRetrievable();
+
+
+    if(count > buf.curLength)
+        buf.resize(count);
+    else
+        buf.shrink(count);
+
+    buf.curLength = filter.Get(buf.buffer, count);
+
+    return buf;
 }

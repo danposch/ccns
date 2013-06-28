@@ -10,6 +10,8 @@ namespace ccns
         class IPacket
         {
         public:
+            enum IPacketType{CCNxInterest = 26, CCNxContentObject = 64};
+
             virtual ~IPacket(){}
 
             virtual int getType() = 0;

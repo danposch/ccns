@@ -2,7 +2,7 @@
 
 using namespace ccns::encoding;
 
-CCNxContentObject::CCNxContentObject(const std::string &name, util::BinaryBuffer data) : AbstractPacket(1, name)
+CCNxContentObject::CCNxContentObject(const std::string &name, util::BinaryBuffer data) : AbstractPacket(IPacket::CCNxContentObject, name)
 {
 
 }

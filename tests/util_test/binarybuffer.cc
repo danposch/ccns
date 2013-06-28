@@ -59,7 +59,7 @@ BOOST_AUTO_TEST_CASE( binarybuffer_usage_test )
 
     BinaryBuffer buffer3 = BinaryBuffer(some_text, some_text_length);
     buffer3.toBase64();
-    buffer3.toBinary();
+    buffer3.fromBase64();
 
     BOOST_CHECK_EQUAL(memcmp((void*) buffer3.data(), (void*)some_text,  buffer3.length()), 0);
 }

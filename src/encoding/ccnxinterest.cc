@@ -2,7 +2,7 @@
 
 using namespace ccns::encoding;
 
-CCNxInterest::CCNxInterest(std::string name) : AbstractPacket(0, name)
+CCNxInterest::CCNxInterest(std::string name) : AbstractPacket(IPacket::CCNxInterest, name)
 {
    minSuffixComponents = 0;
    maxSuffixComponents = UINT_MAX;
