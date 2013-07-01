@@ -33,3 +33,6 @@ boost*/
 #exclude the boost directory
 crypto++/
 
+#exclude the libxml2 directory
+libxml2*/
+

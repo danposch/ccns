@@ -12,12 +12,14 @@ namespace ccns
 {
     namespace util
     {
-
         class Name
         {
         public:
             Name(std::string name);
             Name(char *name, size_t length);
+
+            Name(const Name& other);
+            Name& operator=(Name const& other);
 
             std::vector<BinaryBuffer> getComponents(){return components;}
             std::string toString();

@@ -4,7 +4,10 @@
 
 TEMPLATE = app
 
-LIBS += ./../util/lib/libutil.a -lcryptopp -lboost_serialization
+LIBS += ./../util/lib/libutil.a \
+         -lcryptopp \
+         -lboost_serialization \
+         -lxml2
 
 HEADERS += \
     packetmanager.h \

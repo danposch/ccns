@@ -42,3 +42,14 @@ std::string Name::toString()
 
     return name;
 }
+
+Name& Name::operator=(Name const& other)
+{
+    this->components = other.components;
+    return *this;
+}
+
+Name::Name(const Name& other)
+{
+    *this = other;
+}

@@ -5,6 +5,8 @@
 
 using namespace ccns::encoding;
 
+xmlChar* CCNxInterest::rootName = (xmlChar*) ("Interest");
+
 CCNxInterest::CCNxInterest(std::string name) : AbstractPacket(IPacket::CCNxInterest, name)
 {
    minSuffixComponents = 0;
@@ -15,14 +17,13 @@ CCNxInterest::CCNxInterest(std::string name) : AbstractPacket(IPacket::CCNxInter
 
 ccns::util::BinaryBuffer CCNxInterest::serialize()
 {
-    /*
-    std::ofstream file("/home/dposch/archive.xml");
-    boost::archive::xml_oarchive oa(file);
+    ccns::util::XmlObject xml;
 
-    oa & BOOST_SERIALIZATION_NVP(packetType);
-    oa & BOOST_SERIALIZATION_NVP(packetName);
+    xml.createNewXmlDocument(rootName);
 
-    util::BinaryBuffer b;
+    ccns::util::BinaryBuffer buf;
 
-    return b;*/
+    xml.dump(&buf);
+
+    fprintf(stderr, "Data = %s\n", buf.data());
 }

@@ -18,6 +18,7 @@ CONFIG(debug, debug|release) {
 
 INCLUDEPATH =  \
                /usr/local/include/ \
+               /usr/local/include/libxml2 \
                /usr/include/ \
                ./../util/
 

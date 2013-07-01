@@ -3,12 +3,9 @@
 
 #include <boost/date_time/posix_time/posix_time.hpp>
 
-//#include <boost/archive/xml_iarchive.hpp>
-//#include <boost/archive/xml_oarchive.hpp>
-
-
 #include "abstractpacket.h"
 #include "binarybuffer.h"
+#include "xmlobject.h"
 
 // see http://www.ccnx.org/releases/latest/doc/technical/InterestMessage.html
 
@@ -26,6 +23,8 @@ namespace ccns
             util::BinaryBuffer serialize();
 
         private:
+
+            static xmlChar* rootName;
 
             unsigned int minSuffixComponents;
             unsigned int maxSuffixComponents;

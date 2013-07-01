@@ -7,13 +7,17 @@ CONFIG += staticlib
 
 TARGET = util
 
+LIBS += -lxml2
+
 DESTDIR = lib
 
 HEADERS += \ 
     binarybuffer.h \
-    name.h
+    name.h \
+    xmlobject.h
 
 SOURCES += \ 
     binarybuffer.cc \
-    name.cc
+    name.cc \
+    xmlobject.cc
 
