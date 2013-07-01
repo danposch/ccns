@@ -12,7 +12,7 @@ namespace ccns
         class CCNxContentObject : public AbstractPacket
         {
         public:
-            CCNxContentObject(const util::Name &name, util::BinaryBuffer data);
+            CCNxContentObject(const util::Name &name, util::BinaryBuffer data, PropertyMap props = PropertyMap());
         };
     }
 }

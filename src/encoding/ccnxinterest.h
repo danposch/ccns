@@ -1,12 +1,10 @@
 #ifndef CCNXINTEREST_H
 #define CCNXINTEREST_H
 
-#include <boost/date_time/posix_time/posix_time.hpp>
-
 #include "abstractpacket.h"
 #include "binarybuffer.h"
-#include "xmlobject.h"
 #include "name.h"
+#include "xmlobject.h"
 
 // see http://www.ccnx.org/releases/latest/doc/technical/InterestMessage.html
 
@@ -19,15 +17,15 @@ namespace ccns
         {
 
         public:
-            CCNxInterest(const util::Name &name);
+            CCNxInterest(const util::Name &name, PropertyMap props = PropertyMap());
 
-            util::BinaryBuffer serialize();
+            util::BinaryBuffer xmlSerialize();
 
         private:
 
             static xmlChar* rootName;
 
-            unsigned int minSuffixComponents;
+            /*unsigned int minSuffixComponents;
             unsigned int maxSuffixComponents;
             std::string publisherDigest;
             std::string exclude;
@@ -36,7 +34,7 @@ namespace ccns
             unsigned int scope;
             boost::posix_time::ptime interestLifetime;
             std::string nonce;
-            unsigned int faceId;
+            unsigned int faceId;*/
 
         };
     }

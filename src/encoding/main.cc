@@ -31,7 +31,7 @@ int main()
     cout << "Packet Name = " << interest->getName().toString() << " Packet Type = "<< interest->getType() << std::endl;
     cout << "Packet Name = " << content->getName().toString() << " Packet Type = "<< content->getType() <<  std::endl;
 
-    BinaryBuffer pbuffer = interest->serialize();
+    BinaryBuffer pbuffer = interest->xmlSerialize();
 
     fprintf(stderr, "Data = %s\n", pbuffer.data());
 

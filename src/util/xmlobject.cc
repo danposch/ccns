@@ -15,13 +15,36 @@ XmlObject::~XmlObject()
         xmlFreeDoc(doc);
 }
 
-void XmlObject::createNewXmlDocument(xmlChar* rootNodeName)
+xmlNodePtr XmlObject::createNewXmlDocument(xmlChar* rootNodeName)
 {
     if(doc != NULL)
         xmlFreeDoc(doc);
 
+
     doc = xmlNewDoc( (const xmlChar*)"1.0" );
-    xmlDocSetRootElement(doc, xmlNewNode(NULL, rootNodeName));
+    xmlNodePtr root = xmlNewNode(NULL, rootNodeName);
+
+    xmlDocSetRootElement(doc, root);
+    return root;
+}
+
+xmlNodePtr XmlObject::addNode(xmlNodePtr parent, xmlChar* nodeName, xmlChar* content)
+{
+    if(parent == NULL)
+        return NULL;
+
+    return xmlNewChild(parent,NULL,nodeName, content);
+}
+
+
+bool XmlObject::addAttribute(xmlNodePtr node, xmlChar* attributeName, xmlChar* attributeValue)
+{
+    if(node == NULL)
+        return false;
+
+    xmlNewProp(node, attributeName, attributeValue);
+
+    return true;
 }
 
 int XmlObject::dump(BinaryBuffer* buffer)

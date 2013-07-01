@@ -4,7 +4,7 @@ using namespace ccns::encoding;
 
 CCNxInterstBuilder::CCNxInterstBuilder()
 {
-
+    //create a property map
 }
 
 IPacket* CCNxInterstBuilder::createPacket(const util::Name &name, util::BinaryBuffer)

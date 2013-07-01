@@ -2,10 +2,11 @@
 
 using namespace ccns::encoding;
 
-AbstractPacket::AbstractPacket(int type, const util::Name &name)
+AbstractPacket::AbstractPacket(int type, const util::Name &name, PropertyMap prop)
 {
     this->packetType = type;
     this->packetName = name;
+    this->prop = prop;
 }
 
 int AbstractPacket::getType(){
@@ -20,7 +21,7 @@ int AbstractPacket::prefixMatch(const std::string &name){
     return 0;
 }
 
-ccns::util::BinaryBuffer AbstractPacket::serialize(){
+ccns::util::BinaryBuffer AbstractPacket::xmlSerialize(){
 
     ccns::util::BinaryBuffer empty;
     return empty;

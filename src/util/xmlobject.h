@@ -16,8 +16,9 @@ namespace ccns
             XmlObject();
             virtual ~XmlObject();
 
-
-            void createNewXmlDocument( xmlChar *rootNodeName );
+            xmlNodePtr createNewXmlDocument( xmlChar *rootNodeName );
+            xmlNodePtr addNode(xmlNodePtr parent, xmlChar* nodeName, xmlChar* content = NULL);
+            bool addAttribute(xmlNodePtr node, xmlChar* attributeName, xmlChar* attributeValue);
 
             int dump(BinaryBuffer *buffer);
 
