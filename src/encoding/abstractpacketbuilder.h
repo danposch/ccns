@@ -4,6 +4,7 @@
 #include "ipacketbuilder.h"
 #include "ipacket.h"
 #include "binarybuffer.h"
+#include "name.h"
 
 namespace ccns
 {
@@ -14,8 +15,8 @@ namespace ccns
         public:
             AbstractPacketBuilder();
 
-            virtual IPacket* createPacket(const std::string &name, util::BinaryBuffer data);
-            virtual IPacket* createPacket(const std::string &name);
+            virtual IPacket* createPacket(const util::Name &name, util::BinaryBuffer data);
+            virtual IPacket* createPacket(const util::Name &name);
 
             void setDefaultSettings();
         };

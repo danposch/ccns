@@ -11,12 +11,12 @@ void AbstractPacketBuilder::setDefaultSettings()
 
 }
 
-IPacket* AbstractPacketBuilder::createPacket(const std::string &, util::BinaryBuffer data )
+IPacket* AbstractPacketBuilder::createPacket(const util::Name &, util::BinaryBuffer data )
 {
     return NULL;
 }
 
-IPacket* AbstractPacketBuilder::createPacket(const std::string &)
+IPacket* AbstractPacketBuilder::createPacket(const util::Name &)
 {
     return NULL;
 }

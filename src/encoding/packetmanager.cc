@@ -19,14 +19,3 @@ IPacketBuilder* PacketManager::getPacketBuilder(IPacketBuilder::PacketBuilderTyp
 
     return bmap.find(type)->second;
 }
-
-/*
-IPacket* PacketManager::createInterest(std::string name)
-{
-    return getPacketBuilder(IPacketBuilder::InterestBuilder)->createPacket(name, NULL);
-}
-
-IPacket* PacketManager::createContentObject(std::string name, unsigned char *blob)
-{
-    return getPacketBuilder(IPacketBuilder::ContentObjectBuilder)->createPacket(name, blob);
-}*/

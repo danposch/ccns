@@ -7,12 +7,12 @@ CCNxInterstBuilder::CCNxInterstBuilder()
 
 }
 
-IPacket* CCNxInterstBuilder::createPacket(const std::string &name, util::BinaryBuffer)
+IPacket* CCNxInterstBuilder::createPacket(const util::Name &name, util::BinaryBuffer)
 {
     return createPacket(name);
 }
 
-IPacket* CCNxInterstBuilder::createPacket(const std::string &name)
+IPacket* CCNxInterstBuilder::createPacket(const util::Name &name)
 {
     return new CCNxInterest(name);
 }

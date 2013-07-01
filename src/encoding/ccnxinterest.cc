@@ -7,7 +7,7 @@ using namespace ccns::encoding;
 
 xmlChar* CCNxInterest::rootName = (xmlChar*) ("Interest");
 
-CCNxInterest::CCNxInterest(std::string name) : AbstractPacket(IPacket::CCNxInterest, name)
+CCNxInterest::CCNxInterest(const util::Name &name) : AbstractPacket(IPacket::CCNxInterest, name)
 {
    minSuffixComponents = 0;
    maxSuffixComponents = UINT_MAX;
@@ -25,5 +25,5 @@ ccns::util::BinaryBuffer CCNxInterest::serialize()
 
     xml.dump(&buf);
 
-    fprintf(stderr, "Data = %s\n", buf.data());
+    return buf;
 }

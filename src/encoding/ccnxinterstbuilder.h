@@ -6,6 +6,7 @@
 #include "abstractpacketbuilder.h"
 #include "ipacket.h"
 #include "ccnxinterest.h"
+#include "name.h"
 
 namespace ccns
 {
@@ -17,8 +18,8 @@ namespace ccns
         public:
             CCNxInterstBuilder();
 
-            IPacket* createPacket(const std::string &name, util::BinaryBuffer);
-            IPacket* createPacket(const std::string &name);
+            IPacket* createPacket(const util::Name &name, util::BinaryBuffer);
+            IPacket* createPacket(const util::Name &name);
         };
     }
 }

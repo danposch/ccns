@@ -3,6 +3,7 @@
 
 #include "abstractpacket.h"
 #include "binarybuffer.h"
+#include "name.h"
 
 namespace ccns
 {
@@ -11,7 +12,7 @@ namespace ccns
         class CCNxContentObject : public AbstractPacket
         {
         public:
-            CCNxContentObject(const std::string &name, util::BinaryBuffer data);
+            CCNxContentObject(const util::Name &name, util::BinaryBuffer data);
         };
     }
 }

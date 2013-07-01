@@ -3,6 +3,7 @@
 
 #include "ipacket.h"
 #include "binarybuffer.h"
+#include "name.h"
 
 namespace ccns
 {
@@ -11,11 +12,11 @@ namespace ccns
         class AbstractPacket : public IPacket
         {
         public:
-            AbstractPacket(int type, const std::string &name);
+            AbstractPacket(int type, const util::Name &name);
 
             int getType();
 
-            std::string getName();
+            util::Name getName();
 
             int prefixMatch(const std::string &name);
 
@@ -24,7 +25,7 @@ namespace ccns
         protected:
 
             int packetType;
-            std::string packetName;
+            util::Name packetName;
 
         };
     }

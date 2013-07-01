@@ -15,7 +15,7 @@ namespace ccns
         class Name
         {
         public:
-            Name(std::string name);
+            Name(std::string name = "");
             Name(char *name, size_t length);
 
             Name(const Name& other);

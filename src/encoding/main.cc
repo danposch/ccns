@@ -3,6 +3,7 @@
 #include "packetmanager.h"
 #include "ipacketbuilder.h"
 #include "binarybuffer.h"
+#include "name.h"
 
 using namespace std;
 using namespace ccns::encoding;
@@ -17,7 +18,7 @@ int main()
 
     PacketManager pman;
 
-    std::string name("/aau/itec/daniel");
+    Name name("/aau/itec/daniel");
     unsigned char data[5] = {'d','a','t','a','\0'};
     BinaryBuffer b(data, 5);
 
@@ -27,10 +28,12 @@ int main()
     IPacket* interest = interestBuilder->createPacket(name);
     IPacket* content = coBuilder->createPacket(name,b);
 
-    cout << "Packet Name = " << interest->getName() << " Packet Type = "<< interest->getType() << std::endl;
-    cout << "Packet Name = " << content->getName() << " Packet Type = "<< content->getType() <<  std::endl;
+    cout << "Packet Name = " << interest->getName().toString() << " Packet Type = "<< interest->getType() << std::endl;
+    cout << "Packet Name = " << content->getName().toString() << " Packet Type = "<< content->getType() <<  std::endl;
 
-    interest->serialize();
+    BinaryBuffer pbuffer = interest->serialize();
+
+    fprintf(stderr, "Data = %s\n", pbuffer.data());
 
     return 0;
 

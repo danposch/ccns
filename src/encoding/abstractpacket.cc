@@ -2,7 +2,7 @@
 
 using namespace ccns::encoding;
 
-AbstractPacket::AbstractPacket(int type, const std::string &name)
+AbstractPacket::AbstractPacket(int type, const util::Name &name)
 {
     this->packetType = type;
     this->packetName = name;
@@ -12,7 +12,7 @@ int AbstractPacket::getType(){
     return this->packetType;
 }
 
-std::string AbstractPacket:: getName(){
+ccns::util::Name AbstractPacket::getName(){
     return this->packetName;
 }
 

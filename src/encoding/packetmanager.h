@@ -21,9 +21,6 @@ namespace ccns
 
             IPacketBuilder* getPacketBuilder(IPacketBuilder::PacketBuilderType type);
 
-            //IPacket* createInterest(std::string name);
-            //IPacket* createContentObject(std::string name, unsigned char *blob);
-
         private:
             typedef boost::unordered_map<IPacketBuilder::PacketBuilderType,  IPacketBuilder*> BuilderMap;
             BuilderMap bmap;

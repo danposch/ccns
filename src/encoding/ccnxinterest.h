@@ -6,6 +6,7 @@
 #include "abstractpacket.h"
 #include "binarybuffer.h"
 #include "xmlobject.h"
+#include "name.h"
 
 // see http://www.ccnx.org/releases/latest/doc/technical/InterestMessage.html
 
@@ -18,7 +19,7 @@ namespace ccns
         {
 
         public:
-            CCNxInterest(std::string name);
+            CCNxInterest(const util::Name &name);
 
             util::BinaryBuffer serialize();
 

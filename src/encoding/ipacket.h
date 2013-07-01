@@ -4,6 +4,7 @@
 #include <string>
 
 #include "binarybuffer.h"
+#include "name.h"
 
 namespace ccns
 {
@@ -18,7 +19,7 @@ namespace ccns
 
             virtual int getType() = 0;
 
-            virtual std::string getName() = 0;
+            virtual util::Name getName() = 0;
 
             virtual int prefixMatch(const std::string &name) = 0;
 
