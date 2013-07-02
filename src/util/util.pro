@@ -5,11 +5,11 @@
 TEMPLATE = lib
 CONFIG += staticlib
 
+DESTDIR = lib
 TARGET = util
 
 LIBS += -lxml2
 
-DESTDIR = lib
 
 HEADERS += \ 
     binarybuffer.h \

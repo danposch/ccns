@@ -3,8 +3,9 @@ TEMPLATE = subdirs
 CONFIG += ordered
 
 SUBDIRS = util \
-          encoding \
-#         security 
+        crypto \
+        encoding
 
 
-encoding.depends = util
+crypto.depends = util
+encoding.depends = util crypto

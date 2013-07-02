@@ -26,6 +26,8 @@ namespace ccns
             virtual ~BinaryBuffer();
 
             BinaryBuffer& append(unsigned char* data, size_t length);
+            BinaryBuffer& append(BinaryBuffer other);
+            BinaryBuffer& clear();
 
             BinaryBuffer(const BinaryBuffer& other);
             BinaryBuffer& operator=(BinaryBuffer const& other);
