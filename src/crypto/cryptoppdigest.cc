@@ -42,7 +42,7 @@ CryptoppDigest::~CryptoppDigest()
 
 ccns::util::BinaryBuffer CryptoppDigest::finialize()
 {
-    computeDigest(this->buf);
+    return computeDigest(this->buf);
 }
 
 ccns::util::BinaryBuffer CryptoppDigest::computeDigest(util::BinaryBuffer &buffer)
@@ -54,5 +54,8 @@ ccns::util::BinaryBuffer CryptoppDigest::computeDigest(util::BinaryBuffer &buffe
     unsigned char* obuf = (unsigned char*)calloc(digest->DigestSize(), sizeof(unsigned char));
     digest->Final(obuf);
 
-    return ccns::util::BinaryBuffer(obuf, digest->DigestSize());
+    ccns::util::BinaryBuffer ret(obuf, digest->DigestSize());
+    free(obuf);
+
+    return ret;
 }
