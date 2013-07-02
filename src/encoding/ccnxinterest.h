@@ -31,7 +31,7 @@ namespace ccns
             util::BinaryBuffer xmlSerialize();
 
         private:
-            void addSimpleUIntNode(util::XmlObject *obj, xmlNodePtr parent, char* nodeName);
+            void addSimpleUIntNode(util::XmlObject *obj, xmlNodePtr parent, const char* nodeName);
         };
     }
 }

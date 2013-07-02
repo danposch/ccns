@@ -50,6 +50,18 @@ BinaryBuffer& BinaryBuffer::append(unsigned char *data, size_t length)
     return *this;
 }
 
+BinaryBuffer& BinaryBuffer::append(BinaryBuffer other)
+{
+    this->append(other.data(), other.length());
+    return *this;
+}
+
+BinaryBuffer& BinaryBuffer::clear()
+{
+    curLength = 0;
+    return *this;
+}
+
 void BinaryBuffer::resize(size_t length)
 {
     // we always double the buffer at least

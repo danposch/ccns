@@ -70,7 +70,7 @@ ccns::util::BinaryBuffer CCNxInterest::xmlSerialize()
     return buf;
 }
 
-void CCNxInterest::addSimpleUIntNode(util::XmlObject *obj, xmlNodePtr parent, char *nodeName)
+void CCNxInterest::addSimpleUIntNode(util::XmlObject *obj, xmlNodePtr parent, const char* nodeName)
 {
     PropertyMap::iterator it = props.find(nodeName);
     std::string value = boost::lexical_cast<std::string>(boost::any_cast<unsigned int>(it->second));

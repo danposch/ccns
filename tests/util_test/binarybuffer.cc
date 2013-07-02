@@ -12,7 +12,6 @@ unsigned char* word2 = (unsigned char*) "old ";
 unsigned char* word3 = (unsigned char*) "fox ";
 unsigned char* word4 = (unsigned char*) "is running.";
 unsigned char* sentence = (unsigned char*) "the old fox is running.";
-unsigned char* sentence_base64 = (unsigned char*) "dGhlIG9sZCBmb3ggaXMgcnVubmluZy4=";
 
 unsigned char* some_text = (unsigned char*)
                             "This program is free software; you can redistribute it and/or modify "
@@ -33,10 +32,11 @@ BOOST_AUTO_TEST_CASE( binarybuffer_constructor_test )
 
      BinaryBuffer buffer1(word1, (size_t) 4);
      BOOST_CHECK_EQUAL(buffer1.length(), (size_t) 4 );
+     BOOST_CHECK_EQUAL(memcmp((void*) buffer1.data(), (void*)word1, buffer1.length()), 0);
 
      BinaryBuffer buffer2 = BinaryBuffer(buffer1);
      BOOST_CHECK_EQUAL(buffer2.length(), buffer1.length());
-
+     BOOST_CHECK_EQUAL(memcmp((void*) buffer2.data(), (void*)buffer1.data(), buffer1.length()), 0);
 }
 
 BOOST_AUTO_TEST_CASE( binarybuffer_usage_test )
@@ -49,18 +49,24 @@ BOOST_AUTO_TEST_CASE( binarybuffer_usage_test )
     BOOST_CHECK_EQUAL(memcmp((void*) buffer1.data(), (void*)sentence,  sentence_length), 0);
 
     BinaryBuffer buffer2;
-    buffer2 + buffer1;
 
+    buffer2 + buffer1;
     BOOST_CHECK_EQUAL(buffer2.length(), (size_t) 0 );
 
     buffer2 = buffer2 + buffer1;
     BOOST_CHECK_EQUAL(buffer2.length(), buffer1.length() );
     BOOST_CHECK_EQUAL(memcmp((void*) buffer1.data(), (void*)buffer2.data(),  buffer1.length()), 0);
 
+    buffer2.clear();
+    BOOST_CHECK_EQUAL(buffer2.length(), (size_t) 0 );
+
+    buffer2.append(buffer1);
+    BOOST_CHECK_EQUAL(buffer2.length(), buffer1.length() );
+    BOOST_CHECK_EQUAL(memcmp((void*) buffer1.data(), (void*)buffer2.data(),  buffer1.length()), 0);
+
     BinaryBuffer buffer3 = BinaryBuffer(some_text, some_text_length);
     buffer3.toBase64();
     buffer3.fromBase64();
-
     BOOST_CHECK_EQUAL(memcmp((void*) buffer3.data(), (void*)some_text,  buffer3.length()), 0);
 }
 

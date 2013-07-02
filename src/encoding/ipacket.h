@@ -9,7 +9,7 @@
 namespace ccns
 {
     namespace encoding
-            {
+    {
         class IPacket
         {
         public:
@@ -17,7 +17,7 @@ namespace ccns
 
             virtual ~IPacket(){}
 
-            virtual int getType() = 0;
+            virtual IPacketType getType() = 0;
 
             virtual util::Name getName() = 0;
 

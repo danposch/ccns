@@ -40,7 +40,6 @@ int main()
       myfile.open ("/home/dposch/out.xml");
       myfile << pbuffer.data();
       myfile.close();
-      return 0;
 
     fprintf(stderr, "Data = %s\n", pbuffer.data());
 
