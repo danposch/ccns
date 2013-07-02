@@ -9,12 +9,12 @@ BinaryBuffer::BinaryBuffer()
     maxLength = 0;
 }
 
-BinaryBuffer::BinaryBuffer(unsigned char *data, size_t length)
+BinaryBuffer::BinaryBuffer(const unsigned char *data, size_t length)
 {
     init(data,length);
 }
 
-void BinaryBuffer::init(unsigned char *data, size_t length)
+void BinaryBuffer::init(const unsigned char *data, size_t length)
 {
     buffer = (unsigned char*)malloc(length);
     memcpy(buffer, data, length);
@@ -29,7 +29,7 @@ BinaryBuffer::~BinaryBuffer()
         free(buffer);
 }
 
-BinaryBuffer& BinaryBuffer::append(unsigned char *data, size_t length)
+BinaryBuffer& BinaryBuffer::append(const unsigned char *data, size_t length)
 {
     if(buffer == NULL)
     {

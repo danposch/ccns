@@ -21,11 +21,11 @@ namespace ccns
         {
         public:
             BinaryBuffer();
-            BinaryBuffer(unsigned char* data, size_t length);
+            BinaryBuffer(const unsigned char* data, size_t length);
 
             virtual ~BinaryBuffer();
 
-            BinaryBuffer& append(unsigned char* data, size_t length);
+            BinaryBuffer& append(const unsigned char *data, size_t length);
             BinaryBuffer& append(BinaryBuffer other);
             BinaryBuffer& clear();
 
@@ -52,7 +52,7 @@ namespace ccns
             void resize(size_t new_min_length);
             void shrink(size_t new_min_length);
 
-            void init(unsigned char* data, size_t length);
+            void init(const unsigned char *data, size_t length);
 
             unsigned char *buffer;
             size_t curLength;
