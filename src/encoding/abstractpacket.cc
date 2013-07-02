@@ -2,11 +2,11 @@
 
 using namespace ccns::encoding;
 
-AbstractPacket::AbstractPacket(int type, const util::Name &name, PropertyMap prop)
+AbstractPacket::AbstractPacket(int type, const util::Name &name, PropertyMap props)
 {
     this->packetType = type;
     this->packetName = name;
-    this->prop = prop;
+    this->props = props;
 }
 
 int AbstractPacket::getType(){

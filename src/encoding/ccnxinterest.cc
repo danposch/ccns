@@ -5,14 +5,9 @@
 
 using namespace ccns::encoding;
 
-xmlChar* CCNxInterest::rootName = (xmlChar*) ("Interest");
-
 CCNxInterest::CCNxInterest(const util::Name &name, PropertyMap props) : AbstractPacket(IPacket::CCNxInterest, name, props)
 {
-   /*minSuffixComponents = 0;
-   maxSuffixComponents = UINT_MAX;
-   childselector = 1;
-   answerOriginKind = 3;*/
+    this->props = props;
 }
 
 ccns::util::BinaryBuffer CCNxInterest::xmlSerialize()
@@ -20,7 +15,7 @@ ccns::util::BinaryBuffer CCNxInterest::xmlSerialize()
     ccns::util::XmlObject xml;
 
     // add rootNode
-    xmlNodePtr root = xml.createNewXmlDocument(rootName);
+    xmlNodePtr root = xml.createNewXmlDocument((xmlChar*) ("Interest"));
 
     //add Name
     std::vector<util::BinaryBuffer> comp = this->packetName.getComponents();
@@ -36,8 +31,48 @@ ccns::util::BinaryBuffer CCNxInterest::xmlSerialize()
         xml.addAttribute(cur, (xmlChar*) "ccnbencoding", (xmlChar*) "base64Binary");
     }
 
+    // Check for optional properties
+
+    //add MinSuffixComponents
+    PropertyMap::iterator it = props.find(MIN_SUFFIX_COMPONENTS);
+    if(it != props.end())
+        addSimpleUIntNode(&xml, root, MIN_SUFFIX_COMPONENTS);
+
+    //add MaxSuffixComponents
+    it = props.find(MAX_SUFFIX_COMPONENTS);
+    if(it != props.end())
+        addSimpleUIntNode(&xml, root, MAX_SUFFIX_COMPONENTS);
+
+    //TODO EXCLUDE
+
+    //ChildSelector
+    it = props.find(CHILD_SELECTOR);
+    if(it != props.end())
+        addSimpleUIntNode(&xml, root, CHILD_SELECTOR);
+
+    //add AnswerOriginKind
+    it = props.find(ANSWER_ORIGIN_KIND);
+    if(it != props.end())
+        addSimpleUIntNode(&xml, root, ANSWER_ORIGIN_KIND);
+
+    //Scope
+    it = props.find(SCOPE);
+    if(it != props.end())
+        addSimpleUIntNode(&xml, root, SCOPE);
+
+    //TODO INTERESTLIFETIME
+
+    // TODO append a random nonce....
+
     util::BinaryBuffer buf;
     xml.dump(&buf);
 
     return buf;
+}
+
+void CCNxInterest::addSimpleUIntNode(util::XmlObject *obj, xmlNodePtr parent, char *nodeName)
+{
+    PropertyMap::iterator it = props.find(nodeName);
+    std::string value = boost::lexical_cast<std::string>(boost::any_cast<unsigned int>(it->second));
+    obj->addNode(parent, (xmlChar*) nodeName , (xmlChar*) value.c_str());
 }

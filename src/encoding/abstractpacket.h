@@ -18,7 +18,7 @@ namespace ccns
         public:
             typedef boost::unordered_map<std::string, boost::any> PropertyMap;
 
-            AbstractPacket(int type, const util::Name &name, PropertyMap prop);
+            AbstractPacket(int type, const util::Name &name, PropertyMap props);
 
             int getType();
 
@@ -33,7 +33,7 @@ namespace ccns
             int packetType;
             util::Name packetName;
 
-            PropertyMap prop;
+            PropertyMap props;
 
         };
     }

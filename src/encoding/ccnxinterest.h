@@ -1,6 +1,15 @@
 #ifndef CCNXINTEREST_H
 #define CCNXINTEREST_H
 
+#define MIN_SUFFIX_COMPONENTS "MinSuffixComponents"
+#define MAX_SUFFIX_COMPONENTS "MaxSuffixComponents"
+#define CHILD_SELECTOR "ChildSelector"
+#define ANSWER_ORIGIN_KIND "AnswerOriginKind"
+#define SCOPE "Scope"
+
+
+#include <boost/lexical_cast.hpp>
+
 #include "abstractpacket.h"
 #include "binarybuffer.h"
 #include "name.h"
@@ -22,20 +31,7 @@ namespace ccns
             util::BinaryBuffer xmlSerialize();
 
         private:
-
-            static xmlChar* rootName;
-
-            /*unsigned int minSuffixComponents;
-            unsigned int maxSuffixComponents;
-            std::string publisherDigest;
-            std::string exclude;
-            unsigned int childselector;
-            unsigned int answerOriginKind;
-            unsigned int scope;
-            boost::posix_time::ptime interestLifetime;
-            std::string nonce;
-            unsigned int faceId;*/
-
+            void addSimpleUIntNode(util::XmlObject *obj, xmlNodePtr parent, char* nodeName);
         };
     }
 }

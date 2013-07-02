@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 #include "packetmanager.h"
 #include "ipacketbuilder.h"
@@ -23,6 +24,8 @@ int main()
     BinaryBuffer b(data, 5);
 
     IPacketBuilder *interestBuilder = pman.getPacketBuilder(IPacketBuilder::InterestBuilder);
+                   interestBuilder = pman.getPacketBuilder(IPacketBuilder::InterestBuilder);
+
     IPacketBuilder *coBuilder = pman.getPacketBuilder(IPacketBuilder::ContentObjectBuilder);
 
     IPacket* interest = interestBuilder->createPacket(name);
@@ -32,6 +35,12 @@ int main()
     cout << "Packet Name = " << content->getName().toString() << " Packet Type = "<< content->getType() <<  std::endl;
 
     BinaryBuffer pbuffer = interest->xmlSerialize();
+
+      ofstream myfile;
+      myfile.open ("/home/dposch/out.xml");
+      myfile << pbuffer.data();
+      myfile.close();
+      return 0;
 
     fprintf(stderr, "Data = %s\n", pbuffer.data());
 

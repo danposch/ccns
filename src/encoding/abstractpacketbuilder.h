@@ -17,16 +17,19 @@ namespace ccns
         {
         public:
 
-            typedef boost::unordered_map<std::string, boost::any> PropertyMap;
-
             AbstractPacketBuilder();
 
             virtual IPacket* createPacket(const util::Name &name, util::BinaryBuffer data);
             virtual IPacket* createPacket(const util::Name &name);
 
-            void setDefaultSettings();
+            void setDefaultSettings(PropertyMap props);
+
+            virtual void addSetting(std::string settingName, boost::any value);
+            virtual void removeSetting(std::string settingName);
 
         protected:
+
+            virtual void initProperties() = 0;
             PropertyMap props;
 
         };

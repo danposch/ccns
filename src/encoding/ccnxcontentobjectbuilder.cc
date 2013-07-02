@@ -11,3 +11,8 @@ IPacket* CCNxContentObjectBuilder::createPacket(const util::Name &name, util::Bi
 {
     return new CCNxContentObject(name, data);
 }
+
+void CCNxContentObjectBuilder::initProperties()
+{
+
+}
