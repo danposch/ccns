@@ -176,3 +176,8 @@ BinaryBuffer& BinaryBuffer::encode(BinaryBuffer &buf, CryptoPP::Filter &filter)
 
     return buf;
 }
+
+std::string BinaryBuffer::getString()
+{
+    return std::string((const char*)buffer, curLength);
+}

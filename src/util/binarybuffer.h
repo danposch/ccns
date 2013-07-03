@@ -41,6 +41,7 @@ namespace ccns
 
             BinaryBuffer getHexCopy();
             BinaryBuffer getBase64Copy();
+            std::string  getString();
 
             size_t length(){return curLength;}
             unsigned char* data(){return buffer;}

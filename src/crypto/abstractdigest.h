@@ -18,6 +18,8 @@ namespace ccns
 
             virtual util::BinaryBuffer computeDigest(util::BinaryBuffer &buffer) = 0;
 
+            virtual size_t getDigestLength() = 0;
+
             virtual void add(unsigned char *data, size_t length);
             virtual void add(const util::BinaryBuffer &buffer);
 

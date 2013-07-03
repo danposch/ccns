@@ -10,11 +10,15 @@ namespace ccns
         class IDigest
         {
          public:
-            enum IDigestType{Cryptopp_SHA1, Cryptopp_SHA_256, Cryptopp_SHA_384, Cryptopp_SHA_512};
+            enum IDigestType{Cryptopp_SHA1, Cryptopp_SHA_256, Cryptopp_SHA_384, Cryptopp_SHA_512,
+                             Cryptopp_Whirlpool, Cryptopp_MD5, Cryptopp_MD4, Cryptopp_Tiger,
+                             Cryptopp_RIPEMD320, Cryptopp_RIPEMD256, Cryptopp_RIPEMD160, Cryptopp_RIPEMD128,
+                             Cryptopp_SHA3_224, Cryptopp_SHA3_256, Cryptopp_SHA3_384, Cryptopp_SHA3_512};
 
             virtual ~IDigest(){}
 
             virtual IDigestType getType() = 0;
+            virtual size_t getDigestLength() = 0;
 
             virtual util::BinaryBuffer computeDigest(util::BinaryBuffer &buffer) = 0;
 
