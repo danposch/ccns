@@ -19,7 +19,7 @@ namespace ccns
 
             AbstractPacketBuilder();
 
-            virtual IPacket* createPacket(const util::Name &name, util::BinaryBuffer data);
+            virtual IPacket* createPacket(const util::Name &name, const util::BinaryBuffer &data);
             virtual IPacket* createPacket(const util::Name &name);
 
             void setDefaultSettings(PropertyMap props);

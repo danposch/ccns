@@ -35,13 +35,17 @@ int main()
     cout << "Packet Name = " << content->getName().toString() << " Packet Type = "<< content->getType() <<  std::endl;
 
     BinaryBuffer pbuffer = interest->xmlSerialize();
+    fprintf(stderr, "Data = %s\n", pbuffer.getString().c_str());
 
-      ofstream myfile;
-      myfile.open ("/home/dposch/out.xml");
-      myfile << pbuffer.data();
-      myfile.close();
+    pbuffer = content->xmlSerialize();
+    fprintf(stderr, "Data = %s\n", pbuffer.getString().c_str());
 
-    fprintf(stderr, "Data = %s\n", pbuffer.data());
+    //ofstream myfile;
+      //myfile.open ("/home/dposch/out.xml");
+      //myfile << pbuffer.data();
+      //myfile.close();
+
+
 
     return 0;
 

@@ -26,7 +26,7 @@ namespace ccns
 
             int prefixMatch(const std::string &name);
 
-            virtual ccns::util::BinaryBuffer xmlSerialize();
+            virtual ccns::util::BinaryBuffer xmlSerialize() = 0;
 
         protected:
 

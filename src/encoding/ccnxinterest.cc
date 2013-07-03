@@ -1,13 +1,11 @@
 #include "ccnxinterest.h"
 
 #include <iostream>
-#include <fstream>
 
 using namespace ccns::encoding;
 
 CCNxInterest::CCNxInterest(const util::Name &name, PropertyMap props) : AbstractPacket(IPacket::CCNxInterest, name, props)
 {
-    this->props = props;
 }
 
 ccns::util::BinaryBuffer CCNxInterest::xmlSerialize()

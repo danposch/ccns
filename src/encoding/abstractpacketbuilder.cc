@@ -24,7 +24,7 @@ void AbstractPacketBuilder::removeSetting(std::string settingName)
         props.erase(it);
 }
 
-IPacket* AbstractPacketBuilder::createPacket(const util::Name &, util::BinaryBuffer data )
+IPacket* AbstractPacketBuilder::createPacket(const util::Name &, const util::BinaryBuffer &data )
 {
     return NULL;
 }

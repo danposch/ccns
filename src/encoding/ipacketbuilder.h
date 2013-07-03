@@ -26,7 +26,7 @@ namespace ccns
             virtual void addSetting(std::string settingName, boost::any value) = 0;
             virtual void removeSetting(std::string settingName) = 0;
 
-            virtual IPacket* createPacket(const util::Name &name, util::BinaryBuffer data) = 0; // packet_data_t
+            virtual IPacket* createPacket(const util::Name &name, const util::BinaryBuffer &data) = 0; // packet_data_t
             virtual IPacket* createPacket(const util::Name &name) = 0;
         };
     }

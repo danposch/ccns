@@ -17,7 +17,7 @@ namespace ccns
         public:
             CCNxContentObjectBuilder();
 
-            IPacket* createPacket(const util::Name &name, util::BinaryBuffer data);
+            IPacket* createPacket(const util::Name &name, const util::BinaryBuffer &data);
 
         protected:
            void initProperties();

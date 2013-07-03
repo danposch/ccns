@@ -18,7 +18,7 @@ void CCNxInterstBuilder::initProperties()
     props[SCOPE] = (unsigned int) 2;
 }
 
-IPacket* CCNxInterstBuilder::createPacket(const util::Name &name, util::BinaryBuffer)
+IPacket* CCNxInterstBuilder::createPacket(const util::Name &name, const util::BinaryBuffer&)
 {
     return createPacket(name);
 }
