@@ -40,14 +40,6 @@ BOOST_AUTO_TEST_CASE( Digest_Test )
 
   hex = dig.getHexCopy();
   BOOST_CHECK_EQUAL(memcmp((void*) sentence_sha3_256, (void*)hex.data(), hex.length()), 0);
-
-  buf.clear();
-  buf.append((unsigned char*)" ", 1);
-
-  CryptoppDigest md5(IDigest::Cryptopp_MD5);
-
-  dig = md5.computeDigest(buf);
-  hex = dig.getHexCopy();
 }
 
 BOOST_AUTO_TEST_SUITE_END()
