@@ -16,7 +16,16 @@ namespace ccns
 {
     namespace util
     {
+        /*!
+          \class BinaryBuffer
+          \brief The BinaryBuffer can be used to store binary data.
 
+          The BinaryBuffer is a flexible storage that can be used to
+          store any kind of data. It offers various methods to modify
+          the data stored in the buffer. It is easy to append additional
+          data or to convert the data into different representations.
+          It supports BASE64 and HEX Encoding/Decoding.
+        */
         class BinaryBuffer
         {
         public:
@@ -50,7 +59,7 @@ namespace ccns
 
             BinaryBuffer& encode(BinaryBuffer &buf, CryptoPP::Filter &filter);
 
-            void resize(size_t new_min_length);
+            void increase(size_t size);
             void shrink(size_t new_min_length);
 
             void init(const unsigned char *data, size_t length);
