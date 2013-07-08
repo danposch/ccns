@@ -16,6 +16,10 @@ ccns::util::BinaryBuffer CCNxContentObject::xmlSerialize()
 
     // add Signature
     xmlNodePtr sigRoot = xml.addNode(root, (xmlChar*) "Signature");
+
+    //crypto::IDigitalSignature *algo = crypto::DigitalSignatureFactory::getSignatureAlgorithm(crypto::IDigitalSignature::DSA);
+
+    //todo add correct signature --> careful u need to sign a lot of data..
     xmlNodePtr bitsNode = xml.addNode(sigRoot, (xmlChar*) "SignatureBits", (xmlChar*)"FAKE SIGNATURE");
     xml.addAttribute(bitsNode, (xmlChar*) "ccnbencoding", (xmlChar*) "base64Binary");
 
@@ -37,11 +41,11 @@ ccns::util::BinaryBuffer CCNxContentObject::xmlSerialize()
 
     xmlNodePtr infoRoot = xml.addNode(root, (xmlChar*) "SignedInfo");
 
-
     //todo
 
     util::BinaryBuffer buf;
     xml.dump(&buf);
 
+    //delete(algo);
     return buf;
 }

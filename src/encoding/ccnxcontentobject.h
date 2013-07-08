@@ -5,6 +5,8 @@
 
 #include "abstractpacket.h"
 #include "binarybuffer.h"
+#include "digitalsignaturefactory.h"
+#include "idigitalsignature.h"
 #include "name.h"
 #include "xmlobject.h"
 
