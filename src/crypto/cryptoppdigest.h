@@ -24,7 +24,7 @@ namespace ccns
             CryptoppDigest(IDigestType type);
             ~CryptoppDigest();
 
-            util::BinaryBuffer computeDigest(util::BinaryBuffer &buffer);
+            util::BinaryBuffer computeDigest(const util::BinaryBuffer &buffer);
             util::BinaryBuffer finialize();
 
             size_t getDigestLength();

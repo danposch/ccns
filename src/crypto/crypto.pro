@@ -15,8 +15,16 @@ HEADERS += \
     icipher.h \
     idigest.h \
     abstractdigest.h \
-    cryptoppdigest.h
+    cryptoppdigest.h \
+    ikeystore.h \
+    abstractcipher.h \
+    idigitalsignature.h \
+    abstractdigitalsignature.h \
+    dsa.h
 
 SOURCES += \
     abstractdigest.cc \
-    cryptoppdigest.cc
+    cryptoppdigest.cc \
+    abstractcipher.cc \
+    abstractdigitalsignature.cc \
+    dsa.cc

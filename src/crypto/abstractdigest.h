@@ -16,7 +16,7 @@ namespace ccns
 
             virtual IDigestType getType();
 
-            virtual util::BinaryBuffer computeDigest(util::BinaryBuffer &buffer) = 0;
+            virtual util::BinaryBuffer computeDigest(const util::BinaryBuffer &buffer) = 0;
 
             virtual size_t getDigestLength() = 0;
 

@@ -20,6 +20,16 @@ BinaryBuffer::BinaryBuffer(const unsigned char *data, size_t length)
 }
 
 /*!
+  Creates a new BinaryBuffer and initializes it with the data.
+
+  @param data String that contains the data.
+ */
+BinaryBuffer::BinaryBuffer(const std::string& data)
+{
+    init((const unsigned char*)data.c_str(), data.size());
+}
+
+/*!
     The init function is responsible to allocate the required memory
     and to copy the data into its private buffer.
 
@@ -71,6 +81,18 @@ BinaryBuffer& BinaryBuffer::append(const unsigned char *data, size_t length)
     curLength += length;
 
     return *this;
+}
+
+/*!
+  Appends data to the BinaryBuffer.
+
+  @param data String to append.
+
+  \returns A reference to the current buffer.
+ */
+BinaryBuffer& BinaryBuffer::append(const std::string& data)
+{
+    return append((const unsigned char*)data.c_str(), data.size());
 }
 
 /*!
@@ -214,7 +236,7 @@ BinaryBuffer& BinaryBuffer::fromHex()
 
     \returns The copyed BinaryBuffer.
 */
-BinaryBuffer BinaryBuffer::getBase64Copy()
+BinaryBuffer BinaryBuffer::getBase64Copy() const
 {
     BinaryBuffer copy = *this;
     copy.toBase64();
@@ -227,7 +249,7 @@ BinaryBuffer BinaryBuffer::getBase64Copy()
 
     \returns The copyed BinaryBuffer.
 */
-BinaryBuffer BinaryBuffer::getHexCopy()
+BinaryBuffer BinaryBuffer::getHexCopy() const
 {
     BinaryBuffer copy = *this;
     copy.toHex();
@@ -268,7 +290,7 @@ BinaryBuffer& BinaryBuffer::encode(BinaryBuffer &buf, CryptoPP::Filter &filter)
 
     \returns The copyed data as string.
 */
-std::string BinaryBuffer::getString()
+std::string BinaryBuffer::getString() const
 {
     return std::string((const char*)buffer, curLength);
 }

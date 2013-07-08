@@ -14,6 +14,11 @@ ccns::util::BinaryBuffer CCNxContentObject::xmlSerialize()
     // add rootNode
     xmlNodePtr root = xml.createNewXmlDocument((xmlChar*) ("ContentObject"));
 
+    // add Signature
+    xmlNodePtr sigRoot = xml.addNode(root, (xmlChar*) "Signature");
+    xmlNodePtr bitsNode = xml.addNode(sigRoot, (xmlChar*) "SignatureBits", (xmlChar*)"FAKE SIGNATURE");
+    xml.addAttribute(bitsNode, (xmlChar*) "ccnbencoding", (xmlChar*) "base64Binary");
+
     //add Name
     std::vector<util::BinaryBuffer> comp = this->packetName.getComponents();
 
@@ -27,6 +32,11 @@ ccns::util::BinaryBuffer CCNxContentObject::xmlSerialize()
         cur = xml.addNode(nameRoot, (xmlChar*)"Component",xmlCharStrndup((char*)tmp.data(),tmp.length()));
         xml.addAttribute(cur, (xmlChar*) "ccnbencoding", (xmlChar*) "base64Binary");
     }
+
+    //add signed info
+
+    xmlNodePtr infoRoot = xml.addNode(root, (xmlChar*) "SignedInfo");
+
 
     //todo
 

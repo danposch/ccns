@@ -31,9 +31,11 @@ namespace ccns
         public:
             BinaryBuffer();
             BinaryBuffer(const unsigned char* data, size_t length);
+            BinaryBuffer(const std::string& data);
 
             virtual ~BinaryBuffer();
 
+            BinaryBuffer& append(const std::string& data);
             BinaryBuffer& append(const unsigned char *data, size_t length);
             BinaryBuffer& append(BinaryBuffer other);
             BinaryBuffer& clear();
@@ -48,12 +50,12 @@ namespace ccns
             BinaryBuffer& toHex();
             BinaryBuffer& fromHex();
 
-            BinaryBuffer getHexCopy();
-            BinaryBuffer getBase64Copy();
-            std::string  getString();
+            BinaryBuffer getHexCopy() const;
+            BinaryBuffer getBase64Copy() const;
+            std::string  getString() const;
 
-            size_t length(){return curLength;}
-            unsigned char* data(){return buffer;}
+            size_t length() const{return curLength;}
+            unsigned char* data() const{return buffer;}
 
         private:
 

@@ -105,7 +105,7 @@ ccns::util::BinaryBuffer CryptoppDigest::finialize()
     return computeDigest(this->buf);
 }
 
-ccns::util::BinaryBuffer CryptoppDigest::computeDigest(util::BinaryBuffer &buffer)
+ccns::util::BinaryBuffer CryptoppDigest::computeDigest(const util::BinaryBuffer &buffer)
 {
 
     digest->Restart();
