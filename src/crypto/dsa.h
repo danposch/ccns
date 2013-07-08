@@ -5,6 +5,7 @@
 #include "cryptopp/dsa.h"
 #include "cryptopp/osrng.h"
 #include "cryptopp/queue.h"
+#include <cryptopp/filters.h>
 
 #include "abstractdigitalsignature.h"
 #include "cryptoppdigest.h"
@@ -22,7 +23,7 @@ namespace ccns
 
             bool generateKeyPair(util::BinaryBuffer *pub_buffer, util::BinaryBuffer *priv_buffer);
             util::BinaryBuffer sign(const util::BinaryBuffer &data, const util::BinaryBuffer &priv_key, util::BinaryBuffer *signature_buf = NULL);
-            util::BinaryBuffer verify(const util::BinaryBuffer &data, const util::BinaryBuffer &pub_key, util::BinaryBuffer *signature_buf = NULL);
+            bool verify(const util::BinaryBuffer &data, const util::BinaryBuffer &pub_key, const util::BinaryBuffer signature_buf);
 
         protected:
             util::BinaryBuffer saveKey(CryptoPP::CryptoMaterial *key);

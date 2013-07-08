@@ -24,31 +24,23 @@ bool DSA::generateKeyPair(util::BinaryBuffer *pub_buffer, util::BinaryBuffer *pr
     priv_buffer->clear();
 
     *pub_buffer = saveKey(&pub_key);
-    *pub_buffer = saveKey(&priv_key);
+    *priv_buffer = saveKey(&priv_key);
 
     return true;
 }
 
 ccns::util::BinaryBuffer DSA::saveKey(CryptoPP::CryptoMaterial *key)
 {
-    CryptoPP::ByteQueue q;
-    key->Save(q);
+    std::string enc_key;
+    key->Save( CryptoPP::StringSink(enc_key).Ref());
 
-    size_t size = q.MaxRetrievable();
-
-    unsigned char* tmp = (unsigned char*) calloc(size, sizeof(unsigned char));
-    q.Get(tmp, size);
-
-    free(tmp);
-    return util::BinaryBuffer(tmp, size);
+    return util::BinaryBuffer(enc_key);
 }
 
 bool DSA::loadKey(const util::BinaryBuffer &data, CryptoPP::CryptoMaterial *key)
 {
-    CryptoPP::ByteQueue q;
-    q.Put2(data.data(), data.length(), 1, true);
+    key->Load(CryptoPP::StringStore(data.getString()).Ref());
 
-    key->Load(q);
     return true;
 }
 
@@ -58,8 +50,7 @@ ccns::util::BinaryBuffer DSA::sign(const util::BinaryBuffer &data, const util::B
     CryptoPP::DSA::PrivateKey k;
     loadKey(priv_key, &k);
 
-    CryptoppDigest sha3(IDigest::Cryptopp_SHA3_256);
-    std::string m = sha3.computeDigest(data).getString();
+    std::string m = data.getString();
     std::string signature;
 
     CryptoPP::DSA::Signer signer(k);
@@ -67,7 +58,7 @@ ccns::util::BinaryBuffer DSA::sign(const util::BinaryBuffer &data, const util::B
     CryptoPP::StringSource(m, true,
         new CryptoPP::SignerFilter(rng, signer,
             new CryptoPP::StringSink(signature),
-            true // putMessage for recovery
+            false // putMessage for recovery
        )
     );
 
@@ -81,10 +72,24 @@ ccns::util::BinaryBuffer DSA::sign(const util::BinaryBuffer &data, const util::B
     return  util::BinaryBuffer(signature);
 }
 
-ccns::util::BinaryBuffer DSA::verify(const util::BinaryBuffer &data, const util::BinaryBuffer &pub_key, util::BinaryBuffer *signature_buf)
-
+bool DSA::verify(const util::BinaryBuffer &data, const util::BinaryBuffer &pub_key, const util::BinaryBuffer signature_buf)
 {
-    util::BinaryBuffer dummy;
-    return dummy;
+    CryptoPP::DSA::PublicKey k;
+    loadKey(pub_key, &k);
 
+    CryptoPP::DSA::Verifier verifier( k );
+
+    bool result = false;
+
+    CryptoPP::StringSource( data.getString() + signature_buf.getString(), true,
+        new CryptoPP::SignatureVerificationFilter(
+            verifier,
+            new CryptoPP::ArraySink(
+                (byte*)&result, sizeof(result)),
+            CryptoPP::SignatureVerificationFilter::PUT_RESULT |
+            CryptoPP::SignatureVerificationFilter::SIGNATURE_AT_END
+        )
+    );
+
+    return result;
 }

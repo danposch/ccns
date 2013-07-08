@@ -17,7 +17,7 @@ namespace ccns
 
             virtual bool generateKeyPair(util::BinaryBuffer *pub_buffer, util::BinaryBuffer *priv_buf) = 0;
             virtual util::BinaryBuffer sign(const util::BinaryBuffer &data, const util::BinaryBuffer &priv_key, util::BinaryBuffer *signature_buf = NULL) = 0;
-            virtual util::BinaryBuffer verify(const util::BinaryBuffer &data, const util::BinaryBuffer &pub_key, util::BinaryBuffer *signature_buf = NULL) = 0;
+            virtual bool verify(const util::BinaryBuffer &data, const util::BinaryBuffer &pub_key, const util::BinaryBuffer signature_buf) = 0;
             virtual ISignatureType getType() = 0;
         };
     }
