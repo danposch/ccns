@@ -5,8 +5,8 @@
 TEMPLATE = app
 
 LIBS += -lboost_unit_test_framework \
-        ../src/crypto/lib/libcrypto.a \
-        ../src/util/lib/libutil.a \
+        ../src/crypto/lib/libccns_crypto.a \
+        ../src/util/lib/libccns_util.a \
         -lcryptopp
 
 INCLUDEPATH += ../src/ ../src/util ../src/crypto .. src/encoding

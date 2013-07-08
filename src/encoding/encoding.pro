@@ -4,7 +4,10 @@
 
 TEMPLATE = app
 
-LIBS += ./../util/lib/libutil.a \
+INCLUDEPATH += ./../crypto/
+
+LIBS +=  ./../util/lib/libccns_util.a \
+         ./../crypto/lib/libccns_crypto.a \
          -lcryptopp \
          -lxml2
 

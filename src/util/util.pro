@@ -6,7 +6,7 @@ TEMPLATE = lib
 CONFIG += staticlib
 
 DESTDIR = lib
-TARGET = util
+TARGET = ccns_util
 
 LIBS += -lxml2
 
