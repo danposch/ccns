@@ -9,7 +9,9 @@ INCLUDEPATH += ./../crypto/
 LIBS +=  ./../util/lib/libccns_util.a \
          ./../crypto/lib/libccns_crypto.a \
          -lcryptopp \
-         -lxml2
+         -lxml2 \
+         -lboost_system \
+         -lboost_filesystem
 
 HEADERS += \
     packetmanager.h \

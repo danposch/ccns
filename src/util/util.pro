@@ -8,16 +8,20 @@ CONFIG += staticlib
 DESTDIR = lib
 TARGET = ccns_util
 
-LIBS += -lxml2
+LIBS += -lxml2 \
+        -lboost_system \
+        -lboost_filesystem
 
 
 HEADERS += \ 
     binarybuffer.h \
     name.h \
-    xmlobject.h
+    xmlobject.h \
+    ccnssettings.h
 
 SOURCES += \ 
     binarybuffer.cc \
     name.cc \
-    xmlobject.cc
+    xmlobject.cc \
+    ccnssettings.cc
 

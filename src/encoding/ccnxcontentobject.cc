@@ -41,7 +41,10 @@ ccns::util::BinaryBuffer CCNxContentObject::xmlSerialize()
 
     xmlNodePtr infoRoot = xml.addNode(root, (xmlChar*) "SignedInfo");
 
-    //todo
+    //add content
+    util::BinaryBuffer c = content.getBase64Copy();
+    cur = xml.addNode(root, (xmlChar*)"Content",xmlCharStrndup((char*)c.data(),c.length()));
+    xml.addAttribute(cur, (xmlChar*) "ccnbencoding", (xmlChar*) "base64Binary");
 
     util::BinaryBuffer buf;
     xml.dump(&buf);

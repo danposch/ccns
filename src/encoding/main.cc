@@ -5,6 +5,7 @@
 #include "ipacketbuilder.h"
 #include "binarybuffer.h"
 #include "name.h"
+#include "ccnssettings.h"
 
 using namespace std;
 using namespace ccns::encoding;
@@ -41,11 +42,9 @@ int main()
     fprintf(stderr, "Data = %s\n", pbuffer.getString().c_str());
 
     //ofstream myfile;
-      //myfile.open ("/home/dposch/out.xml");
-      //myfile << pbuffer.data();
-      //myfile.close();
-
-
+    //myfile.open ("/home/dposch/out.xml");
+    //myfile << pbuffer.data();
+    //myfile.close();
 
     return 0;
 

@@ -24,7 +24,7 @@ INCLUDEPATH =  \
 
 LIBS = -L/usr/local/lib \
        -L/usr/lib \
-        -lpthread
+       -lpthread \
 
 
 CONFIG -= qt
