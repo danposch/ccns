@@ -17,11 +17,20 @@ HEADERS += \
     binarybuffer.h \
     name.h \
     xmlobject.h \
-    ccnssettings.h
+    ccnssettings.h \
+    ifilter.h \
+    filterchain.h \
+    pipelinemanager.h \
+    pipelinefactory.h \
+    pipelineconfigurationparser.h
 
 SOURCES += \ 
     binarybuffer.cc \
     name.cc \
     xmlobject.cc \
-    ccnssettings.cc
+    ccnssettings.cc \
+    filterchain.cc \
+    pipelinefactory.cc \
+    pipelinemanager.cc \
+    pipelineconfigurationparser.cc
 

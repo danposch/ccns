@@ -34,3 +34,5 @@ WARNINGS += -Wall
 
 DESTDIR = bin
 OBJECTS_DIR = build
+
+HEADERS +=

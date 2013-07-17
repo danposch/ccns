@@ -1,0 +1,32 @@
+#include <util/filterchain.h>
+
+#define BOOST_TEST_DYN_LINK
+#include <boost/test/unit_test.hpp>
+#include <boost/container/list.hpp>
+#include <boost/foreach.hpp>
+
+
+using namespace ccns::util;
+
+#include <util/pipelineconfigurationparser.h>
+#include <stdio.h>
+
+BOOST_AUTO_TEST_SUITE( CCNS_Filter_Tests )
+
+BOOST_AUTO_TEST_CASE( some_tests )
+{
+    /*std::string pipelinename = "pipeline2";
+    std::string file = "/home/dposch/ccns/tests/util_test/filters.config";
+
+    boost::container::list<std::string> list = PipelineConfigurationParser::Instance()->getFilters(pipelinename,file);
+
+    BOOST_FOREACH(std::string s, list)
+    {
+        fprintf(stderr, "Result = %s\n", s.c_str());
+    }*/
+
+}
+
+BOOST_AUTO_TEST_SUITE_END()
+
+// EOF
