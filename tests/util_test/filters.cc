@@ -26,7 +26,7 @@ BOOST_AUTO_TEST_CASE( some_tests )
 
     //boost::container::list<std::string> list = PipelineConfigurationParser::Instance()->getFilters(pipelinename,file);
 
-    PipelineManager<int> *man = PipelineFactory<int>::CreateFromConfig(pipelinename,file);
+    PipelineManager<std::string> *man = PipelineFactory<std::string>::CreateFromConfig(pipelinename,file);
 
     /*
     BOOST_FOREACH(std::string s, list)

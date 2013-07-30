@@ -5,6 +5,8 @@
 
 #include "abstractfilter.hpp"
 
+#include <fstream>
+
 namespace ccns
 {
     namespace util
