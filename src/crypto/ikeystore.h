@@ -18,9 +18,9 @@ namespace ccns
             virtual util::BinaryBuffer loadKey() = 0;
             virtual bool storeKey() = 0;
 
-            virtual util::BinaryBuffer generateCertificate() = 0;
-            virtual util::BinaryBuffer loadCertificate() = 0;
-            virtual bool storeCertificate() = 0;
+            //virtual util::BinaryBuffer generateCertificate() = 0;
+            //virtual util::BinaryBuffer loadCertificate() = 0;
+            //virtual bool storeCertificate() = 0;
         };
     }
 }

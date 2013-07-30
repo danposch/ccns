@@ -10,7 +10,7 @@ namespace ccns
 {
     namespace util
     {
-        template <class T>
+        template <typename T>
         class FilterChain : public boost::container::list<IFilter <T> >
         {
         public:

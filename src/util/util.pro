@@ -21,8 +21,10 @@ HEADERS += \
     ifilter.h \
     filterchain.h \
     pipelinemanager.h \
-    pipelinefactory.h \
-    pipelineconfigurationparser.h
+    pipelineconfigurationparser.h \
+    pipelinefactory.hpp \
+    abstractfilter.hpp \
+    samplefilter.h
 
 SOURCES += \ 
     binarybuffer.cc \
@@ -30,7 +32,7 @@ SOURCES += \
     xmlobject.cc \
     ccnssettings.cc \
     filterchain.cc \
-    pipelinefactory.cc \
     pipelinemanager.cc \
-    pipelineconfigurationparser.cc
+    pipelineconfigurationparser.cc \
+    samplefilter.cc
 

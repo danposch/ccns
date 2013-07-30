@@ -9,8 +9,9 @@ namespace ccns
         class IFilter
         {
         public:
-            //template <typename T> bool process(T data);
-            bool process(T data) = 0;
+
+            virtual ~IFilter(){}
+            virtual bool process(T data) = 0;
         };
     }
 }

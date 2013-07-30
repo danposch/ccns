@@ -1,13 +1,13 @@
 #ifndef PIPELINEMANAGER_H
 #define PIPELINEMANAGER_H
 
-#include "filterchain.h";
+#include "filterchain.h"
 
 namespace ccns
 {
     namespace util
     {
-        template<class T>
+        template<typename T>
         class PipelineManager
         {
         public:

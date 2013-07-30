@@ -2,7 +2,7 @@
 
 using namespace ccns::crypto;
 
-IDigitalSignature* IgetSignatureAlgorithm(IDigitalSignature::ISignatureType type)
+IDigitalSignature* DigitalSignatureFactory::getSignatureAlgorithm(IDigitalSignature::ISignatureType type)
 {
     IDigitalSignature *algo = NULL;
 
