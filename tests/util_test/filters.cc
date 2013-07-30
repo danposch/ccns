@@ -1,4 +1,4 @@
-#include <util/filterchain.h>
+#include <util/filterchain.hpp>
 
 #define BOOST_TEST_DYN_LINK
 #include <boost/test/unit_test.hpp>
@@ -8,7 +8,7 @@
 #include <string.h>
 
 #include <util/pipelineconfigurationparser.h>
-#include <util/pipelinemanager.h>
+#include <util/pipelinemanager.hpp>
 #include <util/pipelinefactory.hpp>
 
 using namespace ccns::util;
@@ -26,7 +26,7 @@ BOOST_AUTO_TEST_CASE( some_tests )
 
     //boost::container::list<std::string> list = PipelineConfigurationParser::Instance()->getFilters(pipelinename,file);
 
-    PipelineManager<std::string> *man = PipelineFactory<std::string>::CreateFromConfig(pipelinename,file);
+    PipelineManager<int> *man = PipelineFactory<int>::CreateFromConfig(pipelinename,file);
 
     /*
     BOOST_FOREACH(std::string s, list)

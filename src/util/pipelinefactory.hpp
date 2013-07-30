@@ -5,7 +5,7 @@
 #include "boost/foreach.hpp"
 #include "boost/container/list.hpp"
 
-#include "pipelinemanager.h"
+#include "pipelinemanager.hpp"
 #include "pipelineconfigurationparser.h"
 
 #include "abstractfilter.hpp"

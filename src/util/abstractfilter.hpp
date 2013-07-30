@@ -28,9 +28,12 @@ namespace ccns
 
                     typename FilterMap::iterator it = getMap()->find(name);
                     if(it != getMap()->end())
-                        return it->second;
+                        return it->second();
                     else
+                    {
+                        //fprintf(stderr, "Could not find filter %s", name);
                         return NULL;
+                    }
 
                     /*BOOST_FOREACH(typename FilterMap::value_type& pair, getMap())
                         {
