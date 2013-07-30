@@ -2,7 +2,7 @@
 
 using namespace ccns::util;
 
-//typename ccns::util::AbstractFilter<std::string>::FilterRegister<SampleFilter> SampleFilter::reg(std::string("SampleFilter"));
+typename ccns::util::AbstractFilter<std::string>::FilterRegister<SampleFilter> SampleFilter::reg(std::string("SampleFilter"));
 
 SampleFilter::SampleFilter()
 {

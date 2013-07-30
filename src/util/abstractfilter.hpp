@@ -46,13 +46,14 @@ namespace ccns
             protected:
                 static FilterMap* getMap()
                 {
-                    if(!filters)
-                        filters = new FilterMap;
-                    return filters;
+                    static FilterMap filters;
+                    //if(!filters)
+                        //filters = new FilterMap;
+                    return &filters;
                 }
 
             private:
-                static FilterFactory::FilterMap *filters = NULL;
+                //static FilterFactory::FilterMap *filters = NULL;
             };
 
             template<typename T>
