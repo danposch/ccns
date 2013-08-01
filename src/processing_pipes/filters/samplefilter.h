@@ -3,7 +3,7 @@
 
 #include <string.h>
 
-#include "abstractfilter.hpp"
+#include "../abstractfilter.hpp"
 
 #include <fstream>
 

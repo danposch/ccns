@@ -18,19 +18,10 @@ HEADERS += \
     name.h \
     xmlobject.h \
     ccnssettings.h \
-    ifilter.h \
-    pipelineconfigurationparser.h \
-    pipelinefactory.hpp \
-    abstractfilter.hpp \
-    samplefilter.h \
-    filterchain.hpp \
-    pipelinemanager.hpp
 
 SOURCES += \ 
     binarybuffer.cc \
     name.cc \
     xmlobject.cc \
     ccnssettings.cc \
-    pipelineconfigurationparser.cc \
-    samplefilter.cc
 

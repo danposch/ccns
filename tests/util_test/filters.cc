@@ -1,4 +1,4 @@
-#include <util/filterchain.hpp>
+#include <processing_pipes/filterchain.hpp>
 
 #define BOOST_TEST_DYN_LINK
 #include <boost/test/unit_test.hpp>
@@ -7,11 +7,11 @@
 
 #include <string.h>
 
-#include <util/pipelineconfigurationparser.h>
-#include <util/pipelinemanager.hpp>
-#include <util/pipelinefactory.hpp>
+#include <processing_pipes/pipelineconfigurationparser.h>
+#include <processing_pipes/pipelinemanager.hpp>
+#include <processing_pipes/pipelinefactory.hpp>
 
-#include <util/samplefilter.h>
+#include <processing_pipes/filters/samplefilter.h>
 
 using namespace ccns::util;
 

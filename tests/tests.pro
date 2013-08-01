@@ -7,6 +7,7 @@ TEMPLATE = app
 INCLUDEPATH += ../src/ ../src/util ../src/crypto .. src/encoding
 
 HEADERS += \
+#    util_test/testfilter.hpp
 
 SOURCES +=  test_main.cc \
             util_test/binarybuffer.cc \
@@ -20,6 +21,7 @@ SOURCES +=  test_main.cc \
 LIBS += -lboost_unit_test_framework \
         ../src/crypto/lib/libccns_crypto.a \
         ../src/util/lib/libccns_util.a \
+        ../src/processing_pipes/lib/libccns_processing_pipes.a \
         -lcryptopp \
         -lboost_system \
         -lboost_filesystem \
