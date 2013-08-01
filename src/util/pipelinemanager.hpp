@@ -14,7 +14,7 @@ namespace ccns
             PipelineManager(){chain = new FilterChain<T>();}
             PipelineManager(FilterChain<T> *chain){this->chain = chain;}
 
-            bool executeChain(T &data, bool stopOnFailure = false)
+            bool executeChain(T *data, bool stopOnFailure = false)
             {
                 bool ret = chain->process(data, stopOnFailure);
 

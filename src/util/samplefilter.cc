@@ -8,8 +8,8 @@ SampleFilter::SampleFilter()
 {
 }
 
-bool SampleFilter::process(std::string data)
+bool SampleFilter::process(std::string *data)
 {
-    fprintf(stderr, "Processcing Data = %s...\n",data.c_str());
+    fprintf(stderr, "Processcing Data = %s...\n",data->c_str());
     return true;
 }

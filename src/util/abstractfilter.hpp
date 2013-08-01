@@ -5,6 +5,7 @@
 #include <boost/foreach.hpp>
 
 #include "ifilter.h"
+#include <fstream>
 
 //see http://stackoverflow.com/questions/582331/is-there-a-way-to-instantiate-objects-from-a-string-holding-their-class-name
 
@@ -25,30 +26,19 @@ namespace ccns
 
                 static IFilter<TF>* createFilterInstance(const std::string &name)
                 {
-
                     typename FilterMap::iterator it = getMap()->find(name);
                     if(it != getMap()->end())
                         return it->second();
                     else
                     {
-                        //fprintf(stderr, "Could not find filter %s", name);
                         return NULL;
                     }
-
-                    /*BOOST_FOREACH(typename FilterMap::value_type& pair, getMap())
-                        {
-                            if(name.compare(pair.first) == 0)
-                                return pair.second;
-                        }
-                    return NULL;*/
                 }
 
             protected:
                 static FilterMap* getMap()
                 {
                     static FilterMap filters;
-                    //if(!filters)
-                        //filters = new FilterMap;
                     return &filters;
                 }
 
@@ -61,13 +51,12 @@ namespace ccns
             {
                 FilterRegister(const std::string& name)
                 {
-                    //AbstractFilter<TF>::FilterFactory::FilterMap* fMap = AbstractFilter<TF>::FilterFactory::getMap();
-                    //fMap->insert(AbstractFilter<TF>::FilterFactory::FilterMap::value_type(name, &createTemplate<T>));
+                    fprintf(stderr, "Registered Filter: %s\n", name.c_str());
                     FilterFactory::getMap()->insert(typename FilterFactory::FilterMap::value_type(name, &createTemplate<T>));
                 }
             };
 
-            virtual bool process(TF){return true;}
+            virtual bool process(TF *data) = 0;
 
         protected:
         };

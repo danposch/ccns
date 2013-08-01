@@ -11,6 +11,8 @@
 #include <util/pipelinemanager.hpp>
 #include <util/pipelinefactory.hpp>
 
+#include <util/samplefilter.h>
+
 using namespace ccns::util;
 
 
@@ -27,6 +29,11 @@ BOOST_AUTO_TEST_CASE( some_tests )
     //boost::container::list<std::string> list = PipelineConfigurationParser::Instance()->getFilters(pipelinename,file);
 
     PipelineManager<std::string> *man = PipelineFactory<std::string>::CreateFromConfig(pipelinename,file);
+
+    SampleFilter f;
+
+    std::string data("thats a test string");
+    man->executeChain(&data);
 
     /*
     BOOST_FOREACH(std::string s, list)

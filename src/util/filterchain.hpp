@@ -16,13 +16,13 @@ namespace ccns
         public:
             FilterChain(){}
 
-            bool process(T &data, bool stopOnFailure = false)
+            bool process(T *data, bool stopOnFailure = false)
             {
                 bool ret = true;
 
-                BOOST_FOREACH(IFilter <T> filter, this)
+                BOOST_FOREACH(IFilter<T> *filter, *this)
                 {
-                    if ( !(filter->Process(data)) )
+                    if ( !(filter->process(data)) )
                     {
                         ret = false;
 

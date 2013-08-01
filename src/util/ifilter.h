@@ -11,7 +11,7 @@ namespace ccns
         public:
 
             virtual ~IFilter(){}
-            virtual bool process(T data) = 0;
+            virtual bool process(T *data) = 0;
         };
     }
 }

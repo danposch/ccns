@@ -15,7 +15,7 @@ namespace ccns
     {
         public:
             SampleFilter();
-            bool process(std::string data);
+            bool process(std::string *data);
 
         private:
             static FilterRegister<SampleFilter> reg;
