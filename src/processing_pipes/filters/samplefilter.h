@@ -9,17 +9,17 @@
 
 namespace ccns
 {
-    namespace util
+    namespace processing
     {
-    class SampleFilter : public AbstractFilter<std::string>
-    {
-        public:
-            SampleFilter();
-            bool process(std::string *data);
+        class SampleFilter : public AbstractFilter<std::string>
+        {
+            public:
+                SampleFilter();
+                bool process(std::string *data);
 
-        private:
-            static FilterRegister<SampleFilter> reg;
-    };
+            private:
+                static FilterRegister<SampleFilter> reg;
+        };
     }
 }
 

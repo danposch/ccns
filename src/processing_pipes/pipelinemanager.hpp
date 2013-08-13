@@ -5,7 +5,7 @@
 
 namespace ccns
 {
-    namespace util
+    namespace processing
     {
         template<typename T>
         class PipelineManager

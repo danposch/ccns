@@ -1,8 +1,8 @@
 #include "samplefilter.h"
 
-using namespace ccns::util;
+using namespace ccns::processing;
 
-typename ccns::util::AbstractFilter<std::string>::FilterRegister<SampleFilter> SampleFilter::reg(std::string("SampleFilter"));
+//typename ccns::processing::AbstractFilter<std::string>::FilterRegister<SampleFilter> SampleFilter::reg(std::string("SampleFilter"));
 
 SampleFilter::SampleFilter()
 {

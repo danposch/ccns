@@ -12,7 +12,7 @@
 
 namespace ccns
 {
-    namespace util
+    namespace processing
     {
         template <typename T>
         class PipelineFactory
@@ -34,7 +34,7 @@ namespace ccns
                     else
                         fprintf(stderr, "WARNING: Could not find filter: %s\n", filterName.c_str());
                 }
-                return new ccns::util::PipelineManager<T>(chain);
+                return new ccns::processing::PipelineManager<T>(chain);
             }
         };
     }

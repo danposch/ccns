@@ -11,10 +11,11 @@
 #include <processing_pipes/pipelinemanager.hpp>
 #include <processing_pipes/pipelinefactory.hpp>
 
-#include <processing_pipes/filters/samplefilter.h>
+//#include <processing_pipes/filters/samplefilter.h>
 
-using namespace ccns::util;
+#include <processing_pipes/abstractfilter.hpp>
 
+using namespace ccns::processing;
 
 #include <stdio.h>
 
@@ -30,7 +31,7 @@ BOOST_AUTO_TEST_CASE( some_tests )
 
     PipelineManager<std::string> *man = PipelineFactory<std::string>::CreateFromConfig(pipelinename,file);
 
-    SampleFilter f;
+    //SampleFilter f;
 
     std::string data("thats a test string");
     man->executeChain(&data);

@@ -11,7 +11,7 @@
 
 namespace ccns
 {
-    namespace util
+    namespace processing
     {
         template<typename TF>
         class AbstractFilter : public IFilter<TF>
@@ -30,9 +30,7 @@ namespace ccns
                     if(it != getMap()->end())
                         return it->second();
                     else
-                    {
                         return NULL;
-                    }
                 }
 
             protected:
@@ -41,9 +39,6 @@ namespace ccns
                     static FilterMap filters;
                     return &filters;
                 }
-
-            private:
-                //static FilterFactory::FilterMap *filters = NULL;
             };
 
             template<typename T>
@@ -57,8 +52,6 @@ namespace ccns
             };
 
             virtual bool process(TF *data) = 0;
-
-        protected:
         };
     }
 }

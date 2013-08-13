@@ -11,7 +11,7 @@
 
 namespace ccns
 {
-    namespace util
+    namespace processing
     {
         class PipelineConfigurationParser
         {

@@ -1,6 +1,6 @@
 #include "pipelineconfigurationparser.h"
 
-using namespace ccns::util;
+using namespace ccns::processing;
 
 PipelineConfigurationParser* PipelineConfigurationParser::parser = NULL;
 

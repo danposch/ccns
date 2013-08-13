@@ -8,7 +8,7 @@
 
 namespace ccns
 {
-    namespace util
+    namespace processing
     {
         template <typename T>
         class FilterChain : public boost::container::list<IFilter<T> *>
