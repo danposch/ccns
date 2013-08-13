@@ -16,7 +16,8 @@ SOURCES +=  test_main.cc \
             util_test/filters.cc \
             encoding_test/packetmanager.cc \
             crypto_test/cryptoppdigest.cc \
-            crypto_test/dsa.cc
+            crypto_test/dsa.cc \
+            ../src/processing_pipes/filters/samplefilter.cc
 
 LIBS += -lboost_unit_test_framework \
         ../src/crypto/lib/libccns_crypto.a \

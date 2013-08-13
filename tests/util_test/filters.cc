@@ -23,17 +23,17 @@ BOOST_AUTO_TEST_SUITE( CCNS_Filter_Tests )
 
 BOOST_AUTO_TEST_CASE( some_tests )
 {
-
     std::string pipelinename = "pipeline2";
     std::string file = "/home/dposch/ccns/tests/util_test/filters.config";
-
+    //SampleFilter fff;
     //boost::container::list<std::string> list = PipelineConfigurationParser::Instance()->getFilters(pipelinename,file);
 
     PipelineManager<std::string> *man = PipelineFactory<std::string>::CreateFromConfig(pipelinename,file);
 
-    //SampleFilter f;
+    IFilter<std::string>* f = AbstractFilter<std::string>::createFilterInstance("SampleFilter");
 
     std::string data("thats a test string");
+
     man->executeChain(&data);
 
     /*
@@ -41,7 +41,7 @@ BOOST_AUTO_TEST_CASE( some_tests )
     {
         fprintf(stderr, "Result = %s\n", s.c_str());
     }*/
-
+    //SampleFilter ff;
 }
 
 BOOST_AUTO_TEST_SUITE_END()

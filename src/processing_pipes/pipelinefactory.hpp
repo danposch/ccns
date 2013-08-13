@@ -27,7 +27,7 @@ namespace ccns
                 IFilter<T>* current = NULL;
                 BOOST_FOREACH(std::string filterName, filterList)
                 {
-                    current = AbstractFilter<T>::FilterFactory::createFilterInstance(filterName);
+                    current = AbstractFilter<T>::createFilterInstance(filterName);
 
                     if(current != NULL)
                         chain->push_back(current);

@@ -18,36 +18,35 @@ namespace ccns
         {
         public:
 
-            template<typename T> static IFilter<TF>* createTemplate() {return new T;}
+            typedef AbstractFilter *(*ifilter_creator_fn)();
 
-            struct FilterFactory
+            //template<typename T> static IFilter<TF>* createTemplate() {return new T;}
+
+            virtual ~AbstractFilter(){}
+
+            typedef boost::unordered_map<std::string, ifilter_creator_fn> FilterMap;
+
+            static IFilter<TF>* createFilterInstance(const std::string &name)
             {
-                typedef boost::unordered_map<std::string, IFilter<TF>*(*)()> FilterMap;
+                typename FilterMap::iterator it = getMap().find(name);
+                if(it != getMap().end())
+                    return it->second();
+                else
+                    return NULL;
+            }
 
-                static IFilter<TF>* createFilterInstance(const std::string &name)
-                {
-                    typename FilterMap::iterator it = getMap()->find(name);
-                    if(it != getMap()->end())
-                        return it->second();
-                    else
-                        return NULL;
-                }
-
-            protected:
-                static FilterMap* getMap()
-                {
-                    static FilterMap filters;
-                    return &filters;
-                }
-            };
-
-            template<typename T>
-            struct FilterRegister : FilterFactory
+            static FilterMap& getMap()
             {
-                FilterRegister(const std::string& name)
+                static FilterMap filters;
+                return filters;
+            }
+
+            struct FilterRegister
+            {
+                FilterRegister(const std::string &name, AbstractFilter<TF>::ifilter_creator_fn function)
                 {
                     fprintf(stderr, "Registered Filter: %s\n", name.c_str());
-                    FilterFactory::getMap()->insert(typename FilterFactory::FilterMap::value_type(name, &createTemplate<T>));
+                    getMap().insert(typename FilterMap::value_type(name, function));
                 }
             };
 

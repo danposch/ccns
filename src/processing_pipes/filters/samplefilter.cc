@@ -4,6 +4,8 @@ using namespace ccns::processing;
 
 //typename ccns::processing::AbstractFilter<std::string>::FilterRegister<SampleFilter> SampleFilter::reg(std::string("SampleFilter"));
 
+AbstractFilter<std::string>::FilterRegister SampleFilter::reg("SampleFilter", SampleFilter::create);
+
 SampleFilter::SampleFilter()
 {
 }

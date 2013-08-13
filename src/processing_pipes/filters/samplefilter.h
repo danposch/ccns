@@ -17,8 +17,10 @@ namespace ccns
                 SampleFilter();
                 bool process(std::string *data);
 
+                static AbstractFilter<std::string>* create(){return new SampleFilter;}
+
             private:
-                static FilterRegister<SampleFilter> reg;
+                static FilterRegister reg;
         };
     }
 }
