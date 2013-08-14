@@ -12,6 +12,7 @@ SampleFilter::SampleFilter()
 
 bool SampleFilter::process(std::string *data)
 {
-    fprintf(stderr, "Processcing Data = %s...\n",data->c_str());
+    fprintf(stderr, "Duplicating Data = %s\n",data->c_str());
+    data->append(*data);
     return true;
 }

@@ -35,10 +35,15 @@ boost::container::list<std::string> PipelineConfigurationParser::getFilters(cons
     if(result != NULL)
     {
         xmlNodeSetPtr nodes = result->nodesetval;
-        for(int i = 0; i < nodes->nodeNr; i++)
+
+        if(nodes != NULL)
         {
-            res.push_back(std::string((char*) xmlNodeListGetString(doc, nodes->nodeTab[i], 1)));
+            for(int i = 0; i < nodes->nodeNr; i++)
+                res.push_back(std::string((char*) xmlNodeListGetString(doc, nodes->nodeTab[i], 1)));
         }
+        else
+            fprintf(stderr, "PipelineConfigurationParser: Warning could not find requested Pipeline %s. Returning empty Pipeline.\n", pipelineName.c_str());
+
         xmlXPathFreeObject(result);
     }
 

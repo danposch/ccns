@@ -4,16 +4,15 @@
 
 TEMPLATE = app
 
-INCLUDEPATH += ../src/ ../src/util ../src/crypto .. src/encoding
+INCLUDEPATH += ../src/ ../src/util ../src/crypto ../src/encoding ../src/processing_pipes
 
 HEADERS += \
-#    util_test/testfilter.hpp
 
 SOURCES +=  test_main.cc \
             util_test/binarybuffer.cc \
             util_test/name.cc \
             util_test/ccnssettings.cc \
-            util_test/filters.cc \
+            processing_pipes_test/filters.cc \
             encoding_test/packetmanager.cc \
             crypto_test/cryptoppdigest.cc \
             crypto_test/dsa.cc \
@@ -27,3 +26,5 @@ LIBS += -lboost_unit_test_framework \
         -lboost_system \
         -lboost_filesystem \
         -lxml2
+
+#LIBS += ../src/processing_pipes/build/samplefilter.o
