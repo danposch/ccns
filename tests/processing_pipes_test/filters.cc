@@ -16,7 +16,7 @@ using namespace ccns::processing;
 
 BOOST_AUTO_TEST_SUITE( CCNS_Filter_Tests )
 
-BOOST_AUTO_TEST_CASE( some_tests )
+BOOST_AUTO_TEST_CASE( Basic_Filter_Test )
 {
     std::string pipelinename_notexist = "DoesNotExistPipeline";
     std::string pipelinename = "TestPipeline";
@@ -33,6 +33,11 @@ BOOST_AUTO_TEST_CASE( some_tests )
     man->executeChain(&data);
 
     BOOST_CHECK_EQUAL(memcmp((void*) expectedResult.c_str(), (void*)data.c_str(), expectedResult.size()), 0);
+
+}
+
+BOOST_AUTO_TEST_CASE( some_test)
+{
 
 }
 
